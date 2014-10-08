@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438E9D9B19E56B410042366A /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E9D9A19E56B410042366A /* 180x180.png */; };
 		70062EE718F71E1800F49300 /* logo 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 70062EE518F71E1800F49300 /* logo 114.png */; };
 		70062EE818F71E1800F49300 /* logo 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 70062EE618F71E1800F49300 /* logo 120.png */; };
 		700D368318FB20AA00A7224E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700D368218FB20AA00A7224E /* SystemConfiguration.framework */; };
@@ -127,6 +128,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		438E9D9A19E56B410042366A /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
 		70062EE518F71E1800F49300 /* logo 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo 114.png"; sourceTree = "<group>"; };
 		70062EE618F71E1800F49300 /* logo 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo 120.png"; sourceTree = "<group>"; };
 		700D368218FB20AA00A7224E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -499,6 +501,7 @@
 			children = (
 				70FDFE481920277F00578C56 /* 120x120.png */,
 				70FDFE4A1920278B00578C56 /* 114x114.png */,
+				438E9D9A19E56B410042366A /* 180x180.png */,
 				A098F9F2187D7C0A0038C6FE /* SmartSync */,
 				A098FA0B187D7C0A0038C6FE /* SmartSyncTests */,
 				A098F9EB187D7C0A0038C6FE /* Frameworks */,
@@ -797,6 +800,7 @@
 				70D189D4194B735700931083 /* icon57.png in Resources */,
 				A0BA8E2618EED5D90030F272 /* mailBox@2x.png in Resources */,
 				A0BA8E2718EED5D90030F272 /* upload2-128@2x.png in Resources */,
+				438E9D9B19E56B410042366A /* 180x180.png in Resources */,
 				A0BA8E2218EED5D90030F272 /* Default-568h@2x.png in Resources */,
 				A0BA8E2418EED5D90030F272 /* download2-128@2x.png in Resources */,
 				70062EE718F71E1800F49300 /* logo 114.png in Resources */,
@@ -973,6 +977,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1088,6 +1094,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1106,6 +1114,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
