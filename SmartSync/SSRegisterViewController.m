@@ -83,6 +83,14 @@
 {
     self.view.backgroundColor = BACK_COLOR;
 
+    UIColor* whiteColor = [UIColor whiteColor];
+    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"confirm password"
+                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
+
     [_accountButton setBackgroundColor:[UIColor clearColor]];
     [_accountButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _accountButton.layer.cornerRadius = 6.0;
@@ -145,6 +153,15 @@
     [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
     [view.layer addAnimation:transition forKey:@"tralala"];
+}
+
+
+#pragma account created
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    appDelegate.signInVC.textFieldEmail.text = credentials.email;
+    appDelegate.signInVC.textFieldPassword.text = credentials.password;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

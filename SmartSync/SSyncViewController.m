@@ -139,15 +139,16 @@
         }
     }
     
-    [_contactsCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:21.0]];
-    [_serverCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:21.0]];
+    [_contactsCountLabel setFont:[UIFont fontWithName:@"Neris" size:21.0]];
+    [_serverCountLabel setFont:[UIFont fontWithName:@"Neris" size:21.0]];
     
     _buttonSend.titleLabel.numberOfLines = 3;
     _buttonSend.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _buttonInstall.titleLabel.numberOfLines = 3;
+
     [_buttonSend setTitle:@"Save To Cloud" forState:UIControlStateNormal];
     [_buttonInstall setTitle:@"Import Contacts" forState:UIControlStateNormal];
-    _buttonInstall.titleLabel.numberOfLines = 3;
 }
 
 

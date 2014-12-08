@@ -115,6 +115,7 @@
 		A0BF49B918804ACB00D7E5EE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BF49AD18804ACB00D7E5EE /* SBJsonWriter.m */; };
 		A0D4E13A189163E9008938ED /* SSPhotoSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */; };
 		A0D4E13B189163E9008938ED /* SSPhotoSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */; };
+		C87F61B619E5E38800AF1566 /* spotlight87.png in Resources */ = {isa = PBXBuildFile; fileRef = C87F61B519E5E38800AF1566 /* spotlight87.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +329,7 @@
 		A0D4E137189163E9008938ED /* SSPhotoSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSPhotoSyncViewController.h; path = SmartSync/SSPhotoSyncViewController.h; sourceTree = "<group>"; };
 		A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSPhotoSyncViewController.m; path = SmartSync/SSPhotoSyncViewController.m; sourceTree = "<group>"; };
 		A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSPhotoSyncViewController.xib; path = SmartSync/SSPhotoSyncViewController.xib; sourceTree = "<group>"; };
+		C87F61B519E5E38800AF1566 /* spotlight87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight87.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 				70D189D1194B735700931083 /* spotlight29.png */,
 				70D189D2194B735700931083 /* spotlight58.png */,
 				70D189D3194B735700931083 /* spotlight80.png */,
+				C87F61B519E5E38800AF1566 /* spotlight87.png */,
 			);
 			path = ssIcons;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 						DevelopmentTeam = FWAVBHQL7C;
 					};
 					A098FA03187D7C0A0038C6FE = {
+						DevelopmentTeam = FWAVBHQL7C;
 						TestTargetID = A098F9E8187D7C0A0038C6FE;
 					};
 				};
@@ -791,6 +795,7 @@
 				A098FA2B187D85080038C6FE /* SSignInViewController.xib in Resources */,
 				A0BA8E2318EED5D90030F272 /* Default@2x.png in Resources */,
 				70D189D5194B735700931083 /* Default.png in Resources */,
+				C87F61B619E5E38800AF1566 /* spotlight87.png in Resources */,
 				A098F9FF187D7C0A0038C6FE /* Images.xcassets in Resources */,
 				A098FA39187DA2430038C6FE /* SSyncViewController.xib in Resources */,
 				A098FA34187D87E10038C6FE /* SSRegisterViewController.xib in Resources */,
@@ -977,16 +982,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F2C32F1B-E604-4CEB-AA0F-C81DA0665AF0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -998,6 +1003,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1007,6 +1014,7 @@
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSyncTests/SmartSyncTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1094,16 +1102,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F2C32F1B-E604-4CEB-AA0F-C81DA0665AF0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1114,16 +1122,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F2C32F1B-E604-4CEB-AA0F-C81DA0665AF0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1135,6 +1143,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1148,6 +1158,7 @@
 				);
 				INFOPLIST_FILE = "SmartSyncTests/SmartSyncTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1158,6 +1169,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1167,6 +1180,7 @@
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSyncTests/SmartSyncTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

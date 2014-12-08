@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SSRegisterViewController : UIViewController <UITextFieldDelegate>
+@interface SSRegisterViewController : UIViewController <UITextFieldDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *accountButton;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;

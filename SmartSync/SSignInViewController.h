@@ -10,6 +10,7 @@
 #import "SSRequestProtocol.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SSRequestProtocol.h"
+#import "SSRegisterViewController.h"
 
 @interface SSignInViewController : UIViewController <UITextFieldDelegate,SSRequestProtocol,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *textFieldEmail;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelForgot;
 @property (strong, nonatomic) IBOutlet UIButton *sigInButton;
 @property (strong, nonatomic) IBOutlet UIView *loginView;
+@property (strong, nonatomic) SSRegisterViewController *registerVC;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewBack;
 

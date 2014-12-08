@@ -10,6 +10,7 @@
 #import "SSyncViewController.h"
 #import "SSAppDelegate.h"
 #import "SBJson.h"
+#import "SSRegisterViewController.h"
 
 @interface SServerUpload ()
 {
@@ -243,7 +244,7 @@
     NSLog(@"JSON arr COUNT%lu",(unsigned long)responseArr.count);
     
     if (responseArr.count == 1) {
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Account created" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Account created" delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
     else if (responseArr.count == 3)

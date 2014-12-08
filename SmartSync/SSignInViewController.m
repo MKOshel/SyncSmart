@@ -11,7 +11,6 @@
 #import "SServerRequest.h"
 #import "SSContact.h"
 #import <AddressBook/AddressBook.h>
-#import "SSRegisterViewController.h"
 #import "UIColor+FlatUI.h"
 #import "SBJson.h"
 #import "SServerUpload.h"
@@ -30,7 +29,6 @@
     UITextField* forgotField;
     NSNumber *contactsCount;
     SSyncViewController *syncVC;
-    SSRegisterViewController *registerVC;
     SSContact *ssContact;
     UITapGestureRecognizer *tapGesture;
     IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -89,6 +87,11 @@
 {
     self.view.backgroundColor = superBlue;
     self.view.backgroundColor = [UIColor colorWithRed:21/255.0f green:22/255.0f blue:27/255.0f alpha:1];
+    UIColor* whiteColor = [UIColor whiteColor];
+    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password" attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email" attributes:@{NSForegroundColorAttributeName: whiteColor}];
+
+
     for (UIButton *button in _loginView.subviews)
     {
         if ([button isKindOfClass:[UIButton class]])
@@ -253,9 +256,9 @@
 - (void)goToRegisterScreen:(UIButton *)sender
 {
    
-    registerVC = [[SSRegisterViewController alloc]initWithNibName:@"SSRegisterViewController" bundle:nil];
+    _registerVC = [[SSRegisterViewController alloc]initWithNibName:@"SSRegisterViewController" bundle:nil];
 
-    [self presentViewController:registerVC animated:YES completion:nil];
+    [self presentViewController:_registerVC animated:YES completion:nil];
 }
 
 
