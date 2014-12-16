@@ -20,9 +20,11 @@
 @property (strong,nonatomic) SSignInViewController *signInVC;
 @property (strong,nonatomic) SSCredentials* credentials;
 @property (strong,nonatomic) SServerUpload* serverUpload;
-@property(strong,nonatomic) SSContact* contact;
+@property (strong, nonatomic) SSContact* contact;
 
-@property(strong,nonatomic) NSString* deviceToken;
+@property(readwrite,nonatomic) int oldContactsCount;
+@property(nonatomic,strong) NSTimer* timer;
+//@property(strong,nonatomic) NSString* deviceToken;
 
 +(void)showAlertWithMessage:(NSString*)message andTitle:(NSString*)title;
 +(BOOL)isNetwork;

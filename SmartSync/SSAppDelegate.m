@@ -24,14 +24,28 @@
     [GPGuardPost setPublicAPIKey:@"pubkey-0yxmbgkg980hdtqv4faxz1uf57wy2t-8"];
 
     [self initialize];
+    _oldContactsCount = [_contact contactsCount];
     
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = superBlue;
     _syncVC = [[SSyncViewController alloc]initWithNibName:@"SSyncViewController" bundle:nil];
     _signInVC = [[SSignInViewController alloc]initWithNibName:@"SSignInViewController" bundle:nil];
 
-    self.window.rootViewController = _signInVC;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDidFinish:) name:@"notificationDidFinish" object:nil];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults valueForKey:@"email"] == nil) {
+        self.window.rootViewController = _signInVC;
+
+    }
+    else {
+        self.window.rootViewController= _syncVC;
+    }
+   //  self.window.rootViewController = _signInVC;
 
     [self.window makeKeyAndVisible];
     
@@ -39,6 +53,13 @@
     
     return YES;
 }
+
+-(void)notificationDidFinish:(UILocalNotification*)n
+{
+    _oldContactsCount = [_contact contactsCount];
+    
+}
+
 
 -(void)initialize
 {
@@ -61,10 +82,39 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
+-(void)checkContactsAdded
+{
+    int newCount = [_contact contactsCount];
+    
+    if (newCount > _oldContactsCount) {
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    notification.alertBody = @"You have contacts that are not saved , please consider backing up !";
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.applicationIconBadgeNumber = 0;
+    
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationDidFinish" object:nil];
+    }
+}
+
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkContactsAdded) userInfo:nil repeats:YES];
+    
+
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+-(void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    _oldContactsCount = [_contact contactsCount];
+   
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -74,8 +124,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    //[_syncVC setCountText];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [_syncVC setCountText];
+//    _oldContactsCount = [_contact contactsCount];
+    
+    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

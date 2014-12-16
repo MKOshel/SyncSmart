@@ -150,6 +150,7 @@
     [appDelegate.credentials setEmail:_textFieldEmail.text];
     [appDelegate.credentials setPassword:_textFieldPassword.text];
     
+    [self saveLoginSession];
 
     if ([SSAppDelegate isNetwork] == YES) {
         [NSThread detachNewThreadSelector:@selector(beginLogin) toTarget:self withObject:nil];
@@ -160,6 +161,16 @@
         [activityIndicator setHidden:YES];
 
     }
+}
+
+
+-(void)saveLoginSession
+{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setValue:appDelegate.credentials.email forKey:@"email"];
+    [userDefaults synchronize];
+    
 }
 
 

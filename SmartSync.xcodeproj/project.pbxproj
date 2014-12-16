@@ -601,6 +601,7 @@
 				A098FA1B187D7C930038C6FE /* SSContact.h */,
 				A098FA1C187D7C930038C6FE /* SSContact.m */,
 				A0A26B1D18ABB72E00364524 /* SSPhoneNumber.h */,
+				A098FA2E187D87550038C6FE /* Communication */,
 				A0A26B1E18ABB72E00364524 /* SSPhoneNumber.m */,
 				A098FA1E187D7CC80038C6FE /* SSPhoto.h */,
 				A098FA1F187D7CC80038C6FE /* SSPhoto.m */,
@@ -608,7 +609,6 @@
 				A016056618AD21380016B759 /* SSCredentials.m */,
 				A095777D18D071FA00C00AD0 /* SSLoadingParams.h */,
 				A095777E18D071FA00C00AD0 /* SSLoadingParams.m */,
-				A098FA2E187D87550038C6FE /* Communication */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -709,9 +709,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A098F9E8187D7C0A0038C6FE /* SyncSmart */ = {
+		A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmart" */;
+			buildConfigurationList = A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartFTS" */;
 			buildPhases = (
 				A098F9E5187D7C0A0038C6FE /* Sources */,
 				A098F9E6187D7C0A0038C6FE /* Frameworks */,
@@ -721,7 +721,7 @@
 			);
 			dependencies = (
 			);
-			name = SyncSmart;
+			name = SyncSmartFTS;
 			productName = SmartSync;
 			productReference = A098F9E9187D7C0A0038C6FE /* SyncSmart.app */;
 			productType = "com.apple.product-type.application";
@@ -775,7 +775,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A098F9E8187D7C0A0038C6FE /* SyncSmart */,
+				A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */,
 				A098FA03187D7C0A0038C6FE /* SmartSyncTests */,
 			);
 		};
@@ -917,7 +917,7 @@
 /* Begin PBXTargetDependency section */
 		A098FA0A187D7C0A0038C6FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A098F9E8187D7C0A0038C6FE /* SyncSmart */;
+			target = A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */;
 			targetProxy = A098FA09187D7C0A0038C6FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1199,7 +1199,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmart" */ = {
+		A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartFTS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A098FA16187D7C0A0038C6FE /* Debug */,

@@ -14,6 +14,10 @@
 #import "SSUpdateManager.h"
 #import "SSAppDelegate.h"
 
+
+#define TAG_SEND_CONTACTS 100
+#define TAG_INSTALL_CONTACTS 200
+
 @interface SSyncViewController ()
 {
     SSContact *contact;
@@ -49,7 +53,7 @@
     [self logCredentials];
     
     _labelAccount.text = appDelegate.signInVC.textFieldEmail.text;
-    
+    _labelAccount.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
     [self setCountText];
 }
 
@@ -95,6 +99,8 @@
 {
     _contactsCountLabel.text = [NSString stringWithFormat:@"%d",[contact contactsCount]];
     [_serverCountLabel setText:[NSString stringWithFormat:@"%i",appDelegate.serverUpload.contactsNo]];
+    NSNumber* serverCount = [[NSUserDefaults standardUserDefaults] valueForKey:@"len"];
+    [_serverCountLabel setText:serverCount.stringValue];
 }
 
 
@@ -104,16 +110,20 @@
         [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
         return;
     }
-    [self install];
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Install contacts from server ?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    av.tag = TAG_INSTALL_CONTACTS;
+    [av show];
+    //[self install];
 }
 
 -(void)install
 {
     _progressView.hidden = NO;
-    SServerUpload *up = appDelegate.serverUpload;
+   // SServerUpload *up = appDelegate.serverUpload;
     _updateManager = [[SSUpdateManager alloc] init];
 
-    [_updateManager getDataFromURL:[DOWN_CONTACTS_URL stringByAppendingString:up.apiKey]];
+    NSString* apikey = [[NSUserDefaults standardUserDefaults] valueForKey:@"apikey"];
+    [_updateManager getDataFromURL:[DOWN_CONTACTS_URL stringByAppendingString:apikey]];
     
     [self dataIsSyncing];
 }
@@ -134,14 +144,14 @@
             button.layer.borderWidth = 1.5;
             button.layer.cornerRadius = 50.0;
             button.layer.borderColor = [UIColor peterRiverColor].CGColor;
-            [button.titleLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
+            [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]];
             button.layer.masksToBounds = YES;
         }
     }
     
-    [_contactsCountLabel setFont:[UIFont fontWithName:@"Neris" size:21.0]];
-    [_serverCountLabel setFont:[UIFont fontWithName:@"Neris" size:21.0]];
-    
+    [_contactsCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
+    [_serverCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
+    _labelAccount.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:13.0];
     _buttonSend.titleLabel.numberOfLines = 3;
     _buttonSend.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -196,9 +206,12 @@
         [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
         return;
     }
-    [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
-
-    [_progressView setHidden:NO];
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Back up contacts ?This will overwrite your current backup." delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    av.tag = TAG_SEND_CONTACTS;
+    [av show];
+//    [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
+//
+//    [_progressView setHidden:NO];
 }
 
 
@@ -207,7 +220,9 @@
     NSString *strForUpload = [contact getStringOfContacts];
     
     SServerUpload *up = appDelegate.serverUpload;
-    [up uploadStringToServer:strForUpload urlToSend:[UP_CONTACTS_URL stringByAppendingString:up.apiKey]];
+    NSString* apikey = [[NSUserDefaults standardUserDefaults] valueForKey:@"apikey"];
+
+    [up uploadStringToServer:strForUpload urlToSend:[UP_CONTACTS_URL stringByAppendingString:apikey]];
 
     [self dataIsSyncing];
 }
@@ -252,7 +267,8 @@
     [appDelegate.syncVC.progressView setHidden:YES];
     [appDelegate.credentials resetCredentials];
     [self animateView:appDelegate.signInVC.view];
-    [self.view removeFromSuperview];
+    //[self.view removeFromSuperview];
+    [appDelegate.window setRootViewController:appDelegate.signInVC];
 }
 
 
@@ -260,7 +276,6 @@
 - (IBAction)deleteAllContacts:(UIButton *)sender
 {
     
-
     UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:@"We suggest you backup your contacts before proceeding to deletion" delegate:self cancelButtonTitle:@"Back" otherButtonTitles:@"Already backed up", nil];
     alertV.tag = 5;
     [alertV show];
@@ -310,6 +325,20 @@
                 UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete all your contacts ?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
                 alert.tag = 1;
                 [alert show];
+        }
+        else [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    if (alertView.tag == TAG_SEND_CONTACTS) {
+        if (buttonIndex == 1) {
+            [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
+             [_progressView setHidden:NO];
+        }
+        else [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    
+    if (alertView.tag == TAG_INSTALL_CONTACTS) {
+        if (buttonIndex == 1) {
+            [self install];
         }
         else [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }

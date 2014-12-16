@@ -60,7 +60,7 @@
                                  [_activity stopAnimating];
                              }
                              else {
-                                 [SSAppDelegate showAlertWithMessage:@"Please use a valid email " andTitle:@"Oh no"];
+                                 [SSAppDelegate showAlertWithMessage:@"Please use a valid email" andTitle:@"Oh no"];
                                  [_activity stopAnimating];
                              }
                          }

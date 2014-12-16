@@ -27,9 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self customizeView];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)customizeView {
+    _textViewInfo.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
+}
+
+
+
 - (IBAction)dismissVC:(id)sender
 {
 //    CGRect newFrame = appDelegate.signInVC.loginView.frame;

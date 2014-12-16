@@ -32,8 +32,10 @@
 
 -(void)resetCredentials
 {
-    self.email = nil;
-    self.password = nil;
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+//    self.email = nil;
+//    self.password = nil;
 }
 
 @end

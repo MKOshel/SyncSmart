@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonInstall;
 @property (strong, nonatomic) IBOutlet UIButton *buttonDelete;
 
-
+@property (strong, nonatomic) NSString* email;
 -(void)setCountText;
 
 
