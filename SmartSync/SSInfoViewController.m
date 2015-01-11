@@ -32,7 +32,9 @@
 }
 
 -(void)customizeView {
+    _textViewInfo.text = NSLocalizedString(@"Hello ! \nSyncSmartFTS is an easy to use app which can backup your contacts in the cloud and also provides you with the option to transfer/move all of your contacts on different smartphones.\n 1) Create account .\n2) Sign In .\n3) Save your contacts .\n4) Now just sign in from another device and import your contacts.That smart, that simple !! \nTotal count of contacts may be different than the one showed on your phone , depending on what contacts you have selected to be displayed in your contacts app. ! SyncSmartFTS does not take into consideration empty contacts, contact avatars , dates of any kind, addresses , notes and social profile.", nil);
     _textViewInfo.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
+    _textViewInfo.textColor = [UIColor whiteColor];
 }
 
 

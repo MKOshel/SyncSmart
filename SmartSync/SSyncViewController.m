@@ -47,7 +47,7 @@
     [super viewDidLoad];
     
     isShowing = NO;
-
+    [self addLocalization];
     [self customizeView];
 
     [self logCredentials];
@@ -57,6 +57,13 @@
     [self setCountText];
 }
 
+-(void)addLocalization
+{
+    _labelInfoPhoneContacts.text = NSLocalizedString(@"valid contacts on phone", nil);
+    _labelInfoServerContacts.text = NSLocalizedString(@"contacts on server", nil);
+    _buttonDelete.titleLabel.text = NSLocalizedString(@"Delete Contacts", nil);
+    _buttonLogout.titleLabel.text = NSLocalizedString(@"Logout",nil);
+}
 
 -(void)setButtonsColor
 {
@@ -107,10 +114,10 @@
 - (IBAction)downloadAndInstall:(FUIButton *)sender
 {
     if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
         return;
     }
-    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Install contacts from server ?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Install contacts from server ?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil), nil];
     av.tag = TAG_INSTALL_CONTACTS;
     [av show];
     //[self install];
@@ -157,8 +164,8 @@
     _buttonInstall.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.numberOfLines = 3;
 
-    [_buttonSend setTitle:@"Save To Cloud" forState:UIControlStateNormal];
-    [_buttonInstall setTitle:@"Import Contacts" forState:UIControlStateNormal];
+    [_buttonSend setTitle:NSLocalizedString(@"Save To Cloud",nil) forState:UIControlStateNormal];
+    [_buttonInstall setTitle:NSLocalizedString(@"Import Contacts",nil) forState:UIControlStateNormal];
 }
 
 
@@ -203,10 +210,10 @@
 - (IBAction)sendContacts:(FUIButton *)sender
 {
     if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
         return;
     }
-    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Back up contacts ?This will overwrite your current backup." delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Save contacts to server ? This will overwrite your current backup.",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil),nil];
     av.tag = TAG_SEND_CONTACTS;
     [av show];
 //    [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
@@ -267,8 +274,7 @@
     [appDelegate.syncVC.progressView setHidden:YES];
     [appDelegate.credentials resetCredentials];
     [self animateView:appDelegate.signInVC.view];
-    //[self.view removeFromSuperview];
-    [appDelegate.window setRootViewController:appDelegate.signInVC];
+    [self.view removeFromSuperview];
 }
 
 
@@ -276,7 +282,7 @@
 - (IBAction)deleteAllContacts:(UIButton *)sender
 {
     
-    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:@"We suggest you backup your contacts before proceeding to deletion" delegate:self cancelButtonTitle:@"Back" otherButtonTitles:@"Already backed up", nil];
+    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"We suggest you backup your contacts before proceeding to deletion",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Back",nil) otherButtonTitles:NSLocalizedString(@"Already backed up",nil), nil];
     alertV.tag = 5;
     [alertV show];
 
@@ -322,7 +328,7 @@
     // Deletion question
     if (alertView.tag == 5) {
         if (buttonIndex == 1) {
-                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete all your contacts ?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Are you sure you want to delete all your contacts ?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil), nil];
                 alert.tag = 1;
                 [alert show];
         }

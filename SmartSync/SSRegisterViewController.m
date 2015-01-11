@@ -38,6 +38,7 @@
     credentials = appDelegate.credentials;
 
     [self customizeView];
+    [self addLocalization];
 }
 
 
@@ -113,6 +114,17 @@
         }
     }
 }
+
+
+-(void)addLocalization
+{
+    _titleLabel.text = NSLocalizedString(@"Please enter your credentials",nil);
+    _emailTextField.placeholder = NSLocalizedString(@"email", nil);
+    _passwordTextField.placeholder = NSLocalizedString(@"password", nil);
+    _repeatTextField.placeholder = NSLocalizedString(@"confirm password", nil);
+    _accountButton.titleLabel.text = NSLocalizedString(@"Create Account",nil);
+}
+
 
 - (IBAction)goBack:(UIBarButtonItem *)sender
 {

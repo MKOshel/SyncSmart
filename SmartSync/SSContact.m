@@ -360,7 +360,7 @@
     [jsonDict release];
 }
 
-
+// valid contacts count , showed in syncVC
 -(int)contactsCount
 {
 //    int nPeople = ABAddressBookGetPersonCount([SSContact getBook]);
@@ -368,6 +368,13 @@
     return nPeople;
 }
 
+
+-(int)getCountOfAllContacts
+{
+    int nAll = (int)ABAddressBookGetPersonCount([SSContact getBook]);
+    
+    return nAll;
+}
 
 -(void)delAllContacts
 {

@@ -36,4 +36,6 @@
 
 -(void)saveReceivedContacts;
 
+-(int)getCountOfAllContacts;
+
 @end

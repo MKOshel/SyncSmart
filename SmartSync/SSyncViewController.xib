@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -9,9 +9,12 @@
             <connections>
                 <outlet property="buttonDelete" destination="ZMk-rU-iYT" id="odm-u7-mMc"/>
                 <outlet property="buttonInstall" destination="3aL-a5-ONl" id="fKe-ba-vwA"/>
+                <outlet property="buttonLogout" destination="P8V-TA-hX3" id="k1B-GJ-4Y2"/>
                 <outlet property="buttonSend" destination="HUg-oW-JCa" id="l5T-Nv-tmw"/>
                 <outlet property="contactsCountLabel" destination="sYe-w7-Vgy" id="tEO-ze-fep"/>
                 <outlet property="labelAccount" destination="hZd-YM-Z02" id="r59-0g-S13"/>
+                <outlet property="labelInfoPhoneContacts" destination="8Ln-xd-hUe" id="62x-dK-yLL"/>
+                <outlet property="labelInfoServerContacts" destination="QDv-BV-jS2" id="lmW-vj-97P"/>
                 <outlet property="mainView" destination="Cmo-DB-wZg" id="GT4-iZ-EMI"/>
                 <outlet property="menuView" destination="MIe-2w-7SD" id="ULc-Wn-Mwy"/>
                 <outlet property="progressView" destination="lqK-W2-e60" id="G0Q-zQ-4aN"/>

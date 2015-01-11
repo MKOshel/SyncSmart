@@ -74,7 +74,7 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [SSAppDelegate showAlertWithMessage:@"Unable to connect, please verify internet connection and/or credentials" andTitle:@"Oops"];
+                               [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify internet connection and/or credentials",nil) andTitle:@"Oops"];
                                [[appDelegate.signInVC getIndicator] stopAnimating];
                                [[appDelegate.signInVC getIndicator] setHidden:YES];
                            });
@@ -147,7 +147,7 @@
     {
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [SSAppDelegate showAlertWithMessage:@"Unable to connect, please verify your credentials" andTitle:@"Oops"];
+                           [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify your credentials",nil) andTitle:@"Oops"];
                            [[appDelegate.signInVC getIndicator] stopAnimating];
                            [[appDelegate.signInVC getIndicator] setHidden:YES];
                        });
@@ -248,34 +248,34 @@
     NSLog(@"JSON arr COUNT%lu",(unsigned long)responseArr.count);
     
     if (responseArr.count == 1) {
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Account created" delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Account created",nil) delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
     else if (responseArr.count == 3)
     {
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:@"Please insert valid email address" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Please insert valid email address",nil) delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
     
     else if ([response isEqualToString:@"200"]) {
         
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:@"Upload completed, your contacts have been backed up" delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Upload completed, your contacts have been backed up",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alertView.tag = 4;
         
         [alertView show];
     }
     else if ([response isEqualToString:@"500"])
     {
-        [SSAppDelegate showAlertWithMessage:@"Mail already exists" andTitle:@"Oops"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Mail already exists",nil) andTitle:@"Oops"];
     }
     
     else if ([response hasPrefix:@"<!DOCTYPE"])
     {
-        [SSAppDelegate showAlertWithMessage:@"Server maintenance downtime" andTitle:@"Error !"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Server maintenance downtime",nil) andTitle:@"Oops!"];
     }
     else if ([response isEqualToString:@"Internal Server Error"])
     {
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Internal server error" delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry",nil) message:NSLocalizedString(@"Internal server error",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alert.tag = 6;
         
         [alert show];

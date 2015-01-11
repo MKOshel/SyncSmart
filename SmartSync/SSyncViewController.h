@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *contactsCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *serverCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *labelAccount;
+@property (strong, nonatomic) IBOutlet UILabel *labelInfoPhoneContacts;
+@property (strong, nonatomic) IBOutlet UILabel *labelInfoServerContacts;
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *menuView;
@@ -25,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonSend;
 @property (strong, nonatomic) IBOutlet UIButton *buttonInstall;
 @property (strong, nonatomic) IBOutlet UIButton *buttonDelete;
+@property (strong, nonatomic) IBOutlet UIButton *buttonLogout;
 
 @property (strong, nonatomic) NSString* email;
 -(void)setCountText;

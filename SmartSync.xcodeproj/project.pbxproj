@@ -253,7 +253,7 @@
 		A0861065188405D000F1A512 /* SSUpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSUpdateManager.m; path = SmartSync/SSUpdateManager.m; sourceTree = "<group>"; };
 		A095777D18D071FA00C00AD0 /* SSLoadingParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLoadingParams.h; sourceTree = "<group>"; };
 		A095777E18D071FA00C00AD0 /* SSLoadingParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLoadingParams.m; sourceTree = "<group>"; };
-		A098F9E9187D7C0A0038C6FE /* SyncSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncSmartFTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A098F9EC187D7C0A0038C6FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A098F9EE187D7C0A0038C6FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A098F9F0187D7C0A0038C6FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -515,7 +515,7 @@
 		A098F9EA187D7C0A0038C6FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A098F9E9187D7C0A0038C6FE /* SyncSmart.app */,
+				A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */,
 				A098FA04187D7C0A0038C6FE /* SmartSyncTests.xctest */,
 			);
 			name = Products;
@@ -723,7 +723,7 @@
 			);
 			name = SyncSmartFTS;
 			productName = SmartSync;
-			productReference = A098F9E9187D7C0A0038C6FE /* SyncSmart.app */;
+			productReference = A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A098FA03187D7C0A0038C6FE /* SmartSyncTests */ = {
@@ -1002,7 +1002,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmartFTS.app/SyncSmartFTS";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1142,7 +1142,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmartFTS.app/SyncSmartFTS";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1168,7 +1168,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmart.app/SyncSmart";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SyncSmartFTS.app/SyncSmartFTS";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

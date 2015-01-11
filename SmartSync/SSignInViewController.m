@@ -69,7 +69,7 @@
         [_imageViewBack setFrame:[UIScreen mainScreen].bounds];
         [_imageViewBack setImage:[UIImage imageNamed:@"Default.png"]];
     }
-    
+    [self addLocalization];
 }
 
 
@@ -127,6 +127,16 @@
         }
     }
     
+}
+
+
+-(void)addLocalization
+{
+    _sigInButton.titleLabel.text = NSLocalizedString(@"LOGIN", nil);
+    registerLabel.text = NSLocalizedString(@"REGISTER", nil);
+    _labelForgot.text = NSLocalizedString(@"Forgot password ?", nil);
+    _textFieldEmail.placeholder = NSLocalizedString(@"email", nil);
+    _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
 }
 
 

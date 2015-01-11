@@ -15,7 +15,6 @@
 
 
 
-
 @implementation SSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -24,7 +23,7 @@
     [GPGuardPost setPublicAPIKey:@"pubkey-0yxmbgkg980hdtqv4faxz1uf57wy2t-8"];
 
     [self initialize];
-    _oldContactsCount = [_contact contactsCount];
+    _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
@@ -43,7 +42,10 @@
 
     }
     else {
-        self.window.rootViewController= _syncVC;
+        self.window.rootViewController= _signInVC;
+        [_signInVC addChildViewController:_syncVC];
+        [_syncVC didMoveToParentViewController:_signInVC];
+        [_signInVC.view addSubview:_syncVC.view];
     }
    //  self.window.rootViewController = _signInVC;
 
@@ -56,7 +58,7 @@
 
 -(void)notificationDidFinish:(UILocalNotification*)n
 {
-    _oldContactsCount = [_contact contactsCount];
+    _oldContactsCount = [_contact getCountOfAllContacts];
     
 }
 
@@ -84,7 +86,7 @@
 
 -(void)checkContactsAdded
 {
-    int newCount = [_contact contactsCount];
+    int newCount = [_contact getCountOfAllContacts];
     
     if (newCount > _oldContactsCount) {
     
@@ -104,18 +106,14 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkContactsAdded) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:100.0 target:self selector:@selector(checkContactsAdded) userInfo:nil repeats:YES];
     
 
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
--(void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    _oldContactsCount = [_contact contactsCount];
-   
-}
+
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
