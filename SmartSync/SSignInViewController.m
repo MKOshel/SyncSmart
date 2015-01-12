@@ -167,7 +167,7 @@
 
     }
     else if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
         [activityIndicator setHidden:YES];
 
     }
@@ -197,7 +197,7 @@
 {
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied) {
-        [SSAppDelegate showAlertWithMessage:@"SyncSmart does not have permissions to use your contacts, check Settings->Privacy" andTitle:@"Sorry"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"SyncSmart does not have permissions to use your contacts, check Settings->Privacy",nil) andTitle:NSLocalizedString(@"Sorry",nil)];
     }
 
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined)
@@ -212,7 +212,7 @@
             }
             else if (granted == NO)
             {
-                [SSAppDelegate showAlertWithMessage:@"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts" andTitle:@"Sorry"];
+                [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts",nil) andTitle:NSLocalizedString(@"Sorry",nil)];
             }
         });
     }
@@ -303,7 +303,7 @@
 
 -(void)forgotPressed
 {
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Please enter your e-mail address so we can reset your password" message:nil delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please enter your e-mail address so we can reset your password",nil) message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     myAlertView.tag = tagForgot;
     forgotField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];

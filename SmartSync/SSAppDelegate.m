@@ -12,8 +12,10 @@
 #import "Reachability.h"
 #import "GPGuardPost.h"
 
-
-
+#define ENGLISH_LANGUAGE 0
+#define RO_LANGUAGE 1
+#define FRENCH_LANGUAGE 2
+#define CHINESE_LANGUAGE 3
 
 @implementation SSAppDelegate
 
@@ -23,6 +25,8 @@
     [GPGuardPost setPublicAPIKey:@"pubkey-0yxmbgkg980hdtqv4faxz1uf57wy2t-8"];
 
     [self initialize];
+    _selectedLanguage = FRENCH_LANGUAGE;
+
     _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -47,7 +51,6 @@
         [_syncVC didMoveToParentViewController:_signInVC];
         [_signInVC.view addSubview:_syncVC.view];
     }
-   //  self.window.rootViewController = _signInVC;
 
     [self.window makeKeyAndVisible];
     
@@ -165,4 +168,23 @@
     
     return YES;
 }
+
+
+-(NSString*)languageSelectedStringForKey:(NSString*) key
+{
+    
+    NSString *path;
+    if(_selectedLanguage==ENGLISH_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"English" ofType:@"lproj"];
+    else if(_selectedLanguage==CHINESE_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"zh" ofType:@"lproj"];
+    else if(_selectedLanguage==FRENCH_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"fr" ofType:@"lproj"];
+    
+    NSBundle* languageBundle = [NSBundle bundleWithPath:path];
+    NSString* str=[languageBundle localizedStringForKey:key value:@"" table:nil];
+    
+    return str;
+}
+
 @end

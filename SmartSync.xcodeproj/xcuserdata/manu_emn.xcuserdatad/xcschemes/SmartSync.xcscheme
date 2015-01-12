@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A098F9E8187D7C0A0038C6FE"
-               BuildableName = "SyncSmart.app"
-               BlueprintName = "SyncSmart"
+               BuildableName = "SyncSmartFTS.app"
+               BlueprintName = "SyncSmartFTS"
                ReferencedContainer = "container:SmartSync.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A098F9E8187D7C0A0038C6FE"
-            BuildableName = "SyncSmart.app"
-            BlueprintName = "SyncSmart"
+            BuildableName = "SyncSmartFTS.app"
+            BlueprintName = "SyncSmartFTS"
             ReferencedContainer = "container:SmartSync.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A098F9E8187D7C0A0038C6FE"
-            BuildableName = "SyncSmart.app"
-            BlueprintName = "SyncSmart"
+            BuildableName = "SyncSmartFTS.app"
+            BlueprintName = "SyncSmartFTS"
             ReferencedContainer = "container:SmartSync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A098F9E8187D7C0A0038C6FE"
-            BuildableName = "SyncSmart.app"
-            BlueprintName = "SyncSmart"
+            BuildableName = "SyncSmartFTS.app"
+            BlueprintName = "SyncSmartFTS"
             ReferencedContainer = "container:SmartSync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -23,10 +23,12 @@
 @property (strong, nonatomic) SSContact* contact;
 
 @property(readwrite,nonatomic) int oldContactsCount;
+@property(readwrite,nonatomic) int selectedLanguage;
 @property(nonatomic,strong) NSTimer* timer;
 //@property(strong,nonatomic) NSString* deviceToken;
 
 +(void)showAlertWithMessage:(NSString*)message andTitle:(NSString*)title;
+-(NSString*)languageSelectedStringForKey:(NSString*) key;
 +(BOOL)isNetwork;
 
 @end

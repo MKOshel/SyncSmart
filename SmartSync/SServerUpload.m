@@ -74,7 +74,7 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify internet connection and/or credentials",nil) andTitle:@"Oops"];
+                               [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify your credentials",nil) andTitle:@"Oops"];
                                [[appDelegate.signInVC getIndicator] stopAnimating];
                                [[appDelegate.signInVC getIndicator] setHidden:YES];
                            });

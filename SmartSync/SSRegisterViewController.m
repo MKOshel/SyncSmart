@@ -48,7 +48,7 @@
 {
     [_activity startAnimating];
  if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:@"No Internet connection" andTitle:nil];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
      [_activity stopAnimating];
      return;
 }
@@ -61,7 +61,7 @@
                                  [_activity stopAnimating];
                              }
                              else {
-                                 [SSAppDelegate showAlertWithMessage:@"Please use a valid email" andTitle:@"Oh no"];
+                                 [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Please use a valid email",nil) andTitle:@"Oh no"];
                                  [_activity stopAnimating];
                              }
                          }
@@ -149,7 +149,7 @@
     {
         if (![_repeatTextField.text isEqualToString:_passwordTextField.text])
         {
-            [SSAppDelegate showAlertWithMessage:@"Please insert same password in both fields" andTitle:nil];
+            [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Please insert same password in both fields",nil) andTitle:nil];
         }
     }
 }

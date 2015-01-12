@@ -1,0 +1,121 @@
+/* Localized versions of Info.plist keys */
+
+/* No comment provided by engineer. */
+"Account created" = "Compte créé ";
+
+/* No comment provided by engineer. */
+"Already backed up" = "Le Backup a été déjà réalisé";
+
+/* No comment provided by engineer. */
+"Are you sure you want to delete all your contacts ?" = "Etes-vous sûrs de vouloir effacer tous les contacts  ?";
+
+/* No comment provided by engineer. */
+"Back" = "Back";
+
+/* No comment provided by engineer. */
+"Cellular" = "Cellular";
+
+/* No comment provided by engineer. */
+"confirm password" = "confirmez le mot de passe";
+
+/* No comment provided by engineer. */
+"contacts on server" = "Contacts valables sur le serveur";
+
+/* No comment provided by engineer. */
+"Create Account" = "Créez le compte.";
+
+/* No comment provided by engineer. */
+"Delete Contacts" = "Effacez les contacts";
+
+/* No comment provided by engineer. */
+"email" = "email";
+
+/* No comment provided by engineer. */
+"Forgot password ?" = "Avez-vous oublié le mot de passe?";
+
+/* No comment provided by engineer. */
+"Hello ! \nSyncSmartFTS is an easy to use app which can backup your contacts in the cloud and also provides you with the option to transfer/move all of your contacts on different smartphones.\n 1) Create account .\n2) Sign In .\n3) Save your contacts .\n4) Now just sign in from another device and import your contacts.That smart, that simple !! \nTotal count of contacts may be different than the one showed on your phone , depending on what contacts you have selected to be displayed in your contacts app. ! SyncSmartFTS does not take into consideration empty contacts, contact avatars , dates of any kind, addresses , notes and social profile." = "Bonjour ! SyncSmart FTS est une application facilement à utiliser qui fait le Backup des contacts sur le serveur et qui vous offre aussi la possibilité de transférer/transmettre tous les contacts sur un autre Smartphone.\n1) Créez le compte.\n2) Connectez-vous.\n3) Sauvez les contacts.\n4) Connectez-vous maintenant d’un autre dispositif et importer les contacts.That smart, that simple !! Le tout de vos contacts peut être  divers de celui indiqué dans le téléphone, cela en fonction des contacts sélectionnés afin d’être affichés dans l’application Contacts.!SyncSmart FTS ne prend pas en considération les contacts déserts, les photos des contacts, n’importe quel type de donnée, adresses, notes et le profil social.";
+
+/* No comment provided by engineer. */
+"Import Contacts" = "Importez les contacts";
+
+/* No comment provided by engineer. */
+"Install contacts from server ?" = "Voulez-vous installer le backup des contacts sur le téléphone ?";
+
+/* No comment provided by engineer. */
+"Internal server error" = "Internal server error";
+
+/* No comment provided by engineer. */
+"LOGIN" = "Connectez-vous";
+
+/* No comment provided by engineer. */
+"Logout" = " Déconnectez-vous ";
+
+/* No comment provided by engineer. */
+"Mail already exists" = "33. Courrier déjà enregistré.";
+
+/* No comment provided by engineer. */
+"No" = "Non";
+
+/* No comment provided by engineer. */
+"No Internet connection" = "Il n’y a pas de connexion à l’Internet";
+
+/* No comment provided by engineer. */
+"password" = "Mot de passe";
+
+/* No comment provided by engineer. */
+"Please enter your credentials" = "Introduisez les caractères ";
+
+/* No comment provided by engineer. */
+"Please enter your e-mail address so we can reset your password" = "E-mail:";
+
+/* No comment provided by engineer. */
+"Please insert same password in both fields" = "Please insert same password in both fields";
+
+/* No comment provided by engineer. */
+"Please insert valid email address" = "Utiliser un e-mail valable";
+
+/* No comment provided by engineer. */
+"Please use a valid email" = "Please use a valid email";
+
+/* No comment provided by engineer. */
+"REGISTER" = "REGISTER";
+
+/* No comment provided by engineer. */
+"Save contacts to server ? This will overwrite your current backup." = "Voulez-vous refaire le backup des contacts?  Il va remplacer le backup présent.";
+
+/* No comment provided by engineer. */
+"Save To Cloud" = "Sauvez en Cloud.";
+
+/* No comment provided by engineer. */
+"Server maintenance downtime" = "Server maintenance downtime";
+
+/* No comment provided by engineer. */
+"Sorry" = "Désolés! ";
+
+/* No comment provided by engineer. */
+"SyncSmart does not have permissions to use your contacts, check Settings->Privacy" = "SyncSmart FTS n’a pas la permission d’utiliser vos contacts, merci de consulter Réglages -> Confidentialité->Contacts";
+
+/* No comment provided by engineer. */
+"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts" = "SyncSmart FTS a besoin de votre permission pour continuer, merci d’accéder  Réglages -> Confidentialité-> Contacte";
+
+/* No comment provided by engineer. */
+"Unable to connect, please verify internet connection and/or credentials" = "Oops! Impossible de vous connecter, merci de vérifier les caractères ";
+
+/* No comment provided by engineer. */
+"Unable to connect, please verify your credentials" = "Oops! Impossible de vous connecter, merci de vérifier les caractères ";
+
+/* No comment provided by engineer. */
+"Upload completed, your contacts have been backed up" = "Upload terminé";
+
+/* No comment provided by engineer. */
+"valid contacts on phone" = "Contacts valables sur le téléphone.";
+
+/* No comment provided by engineer. */
+"We suggest you backup your contacts before proceeding to deletion" = "On vous conseille de faire le Backup des contacts avant de commencer à les effacer";
+
+/* No comment provided by engineer. */
+"WiFi" = "WiFi";
+
+/* No comment provided by engineer. */
+"Yes" = "Oui";
