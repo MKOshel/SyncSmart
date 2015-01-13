@@ -413,7 +413,7 @@
         [appDelegate.syncVC.progressView setProgress:0.0];
         [appDelegate.syncVC.progressView setHidden:YES];
     
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:@"Contacts deleted" delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Contacts deleted",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alertView.tag = 2;
         
         [alertView show];
@@ -528,7 +528,7 @@
     [appDelegate.syncVC.progressView setHidden:YES];
     [appDelegate.syncVC.progressView setProgress:0.0];
     
-    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:@"Contacts installed" delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Contacts installed",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     alert.tag = 3;
     [alert show];
     

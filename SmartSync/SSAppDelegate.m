@@ -95,7 +95,7 @@
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-    notification.alertBody = @"You have contacts that are not saved , please consider backing up !";
+    notification.alertBody = NSLocalizedString(@"You have contacts that are not saved , please consider backing up !",nil);
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;
     notification.applicationIconBadgeNumber = 0;
