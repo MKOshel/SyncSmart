@@ -42,6 +42,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+
     }
     return self;
     
@@ -75,6 +76,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self translate];
+
+    [super viewWillAppear:animated];
 //        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
@@ -102,6 +106,7 @@
             button.layer.borderWidth = 1.0;
             button.layer.borderColor = [UIColor whiteColor].CGColor;
             [button.titleLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
+            button.titleLabel.textColor = [UIColor whiteColor];
         }
     }
     [registerLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
@@ -122,11 +127,11 @@
             field.layer.borderWidth = 1.0;
             field.layer.borderColor = BLUE_COLOR.CGColor;
             field.backgroundColor = [UIColor clearColor];
+            field.textColor = [UIColor whiteColor];
 //            field.layer.cornerRadius = 6.0;
 
         }
     }
-    
 }
 
 
@@ -139,6 +144,15 @@
     _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
 }
 
+-(void)translate
+{
+    [registerLabel setText:[appDelegate languageSelectedStringForKey:registerLabel.text]];
+    [_labelForgot setText:[appDelegate languageSelectedStringForKey:_labelForgot.text]];
+    [_sigInButton setTitle:[appDelegate languageSelectedStringForKey:_sigInButton.titleLabel.text] forState:UIControlStateNormal];
+    [_textFieldEmail setPlaceholder:[appDelegate languageSelectedStringForKey:_textFieldEmail.placeholder]];
+    
+    
+}
 
 -(void)addTouchToLabel:(UILabel*)label
 {

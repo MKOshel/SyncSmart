@@ -16,6 +16,8 @@
 #define RO_LANGUAGE 1
 #define FRENCH_LANGUAGE 2
 #define CHINESE_LANGUAGE 3
+#define IT_LANGUAGE 4
+#define AR_LANGUAGE 5
 
 @implementation SSAppDelegate
 
@@ -25,8 +27,8 @@
     [GPGuardPost setPublicAPIKey:@"pubkey-0yxmbgkg980hdtqv4faxz1uf57wy2t-8"];
 
     [self initialize];
-    _selectedLanguage = FRENCH_LANGUAGE;
-
+ 
+    _selectedLanguage = AR_LANGUAGE;
     _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -180,6 +182,10 @@
         path = [[NSBundle mainBundle] pathForResource:@"zh" ofType:@"lproj"];
     else if(_selectedLanguage==FRENCH_LANGUAGE)
         path = [[NSBundle mainBundle] pathForResource:@"fr" ofType:@"lproj"];
+    else if (_selectedLanguage == IT_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"it" ofType:@"lproj"];
+    else if (_selectedLanguage == AR_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
     
     NSBundle* languageBundle = [NSBundle bundleWithPath:path];
     NSString* str=[languageBundle localizedStringForKey:key value:@"" table:nil];
