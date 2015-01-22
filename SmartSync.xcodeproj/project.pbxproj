@@ -116,7 +116,6 @@
 		A0D4E13A189163E9008938ED /* SSPhotoSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */; };
 		A0D4E13B189163E9008938ED /* SSPhotoSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */; };
 		C87F61B619E5E38800AF1566 /* spotlight87.png in Resources */ = {isa = PBXBuildFile; fileRef = C87F61B519E5E38800AF1566 /* spotlight87.png */; };
-		E2DC3CA61A6C2719007621BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A095B9BE1A6419DA0019D285 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +353,7 @@
 		A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSPhotoSyncViewController.m; path = SmartSync/SSPhotoSyncViewController.m; sourceTree = "<group>"; };
 		A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSPhotoSyncViewController.xib; path = SmartSync/SSPhotoSyncViewController.xib; sourceTree = "<group>"; };
 		C87F61B519E5E38800AF1566 /* spotlight87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight87.png; sourceTree = "<group>"; };
+		E22E5EE91A7128DD007DF9E6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2DC3CA41A6C25B4007621BF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2DC3CA71A6C2793007621BF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -849,7 +849,6 @@
 				A0B357141897DE3F00DFEF71 /* neris-thin.ttf in Resources */,
 				70FDFE491920277F00578C56 /* 120x120.png in Resources */,
 				70D189D4194B735700931083 /* icon57.png in Resources */,
-				E2DC3CA61A6C2719007621BF /* Localizable.strings in Resources */,
 				A0BA8E2618EED5D90030F272 /* mailBox@2x.png in Resources */,
 				A0BA8E2718EED5D90030F272 /* upload2-128@2x.png in Resources */,
 				438E9D9B19E56B410042366A /* 180x180.png in Resources */,
@@ -976,6 +975,7 @@
 				A095B9BF1A6419DA0019D285 /* fr */,
 				E2DC3CA41A6C25B4007621BF /* it */,
 				E2DC3CA71A6C2793007621BF /* ar */,
+				E22E5EE91A7128DD007DF9E6 /* ro */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
