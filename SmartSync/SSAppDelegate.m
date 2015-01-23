@@ -28,7 +28,7 @@
 
     [self initialize];
  
-    _selectedLanguage = AR_LANGUAGE;
+    _selectedLanguage = ENGLISH_LANGUAGE;
     _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){

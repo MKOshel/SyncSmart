@@ -352,6 +352,8 @@
 		A0D4E137189163E9008938ED /* SSPhotoSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSPhotoSyncViewController.h; path = SmartSync/SSPhotoSyncViewController.h; sourceTree = "<group>"; };
 		A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSPhotoSyncViewController.m; path = SmartSync/SSPhotoSyncViewController.m; sourceTree = "<group>"; };
 		A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSPhotoSyncViewController.xib; path = SmartSync/SSPhotoSyncViewController.xib; sourceTree = "<group>"; };
+		A0E52A9F1A72878B00D1FCAE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A0E52AA01A7287AE00D1FCAE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C87F61B519E5E38800AF1566 /* spotlight87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight87.png; sourceTree = "<group>"; };
 		E22E5EE91A7128DD007DF9E6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2DC3CA41A6C25B4007621BF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -976,6 +978,8 @@
 				E2DC3CA41A6C25B4007621BF /* it */,
 				E2DC3CA71A6C2793007621BF /* ar */,
 				E22E5EE91A7128DD007DF9E6 /* ro */,
+				A0E52A9F1A72878B00D1FCAE /* zh-Hans */,
+				A0E52AA01A7287AE00D1FCAE /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
