@@ -374,11 +374,12 @@
     int nAll = (int)ABAddressBookGetPersonCount([SSContact getBook]);
     
     return nAll;
+    
 }
 
 -(void)delAllContacts
 {
-    int count =  ABAddressBookGetPersonCount([SSContact getBook]);
+    int count =  (int)ABAddressBookGetPersonCount([SSContact getBook]);
     
     if(count==0 && [SSContact getBook]!=NULL) {
         return;
@@ -413,7 +414,8 @@
         [appDelegate.syncVC.progressView setProgress:0.0];
         [appDelegate.syncVC.progressView setHidden:YES];
     
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Contacts deleted",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"Contacts deleted"];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alertView.tag = 2;
         
         [alertView show];
@@ -430,7 +432,7 @@
 {
     CFErrorRef error = NULL;
     int i = 0;
-    int count = appDelegate.serverUpload.contactsFromServer.count;
+    int count = (int)appDelegate.serverUpload.contactsFromServer.count;
     
     for (SSContact* contact in appDelegate.serverUpload.contactsFromServer)
     {

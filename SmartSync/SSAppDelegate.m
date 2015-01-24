@@ -18,6 +18,11 @@
 #define CHINESE_LANGUAGE 3
 #define IT_LANGUAGE 4
 #define AR_LANGUAGE 5
+#define DE_LANGUAGE 6
+#define PT_LANGUAGE 7
+#define JP_LANGUAGE 8
+#define RU_LANGUAGE 9
+#define SP_LANGUAGE 10
 
 @implementation SSAppDelegate
 
@@ -28,7 +33,7 @@
 
     [self initialize];
  
-    _selectedLanguage = ENGLISH_LANGUAGE;
+    _selectedLanguage = RU_LANGUAGE;
     _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -41,11 +46,12 @@
     _signInVC = [[SSignInViewController alloc]initWithNibName:@"SSignInViewController" bundle:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDidFinish:) name:@"notificationDidFinish" object:nil];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([defaults valueForKey:@"email"] == nil) {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* userEmail = [defaults valueForKey:@"email"];
+    
+    if (userEmail == nil || [userEmail isEqual:@""]) {
         self.window.rootViewController = _signInVC;
-
     }
     else {
         self.window.rootViewController= _signInVC;
@@ -111,7 +117,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:100.0 target:self selector:@selector(checkContactsAdded) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:50.0 target:self selector:@selector(checkContactsAdded) userInfo:nil repeats:YES];
     
 
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
@@ -128,6 +134,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [_syncVC setCountText];
+    [_timer invalidate];
 //    _oldContactsCount = [_contact contactsCount];
     
     //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -177,7 +184,7 @@
     
     NSString *path;
     if(_selectedLanguage==ENGLISH_LANGUAGE)
-        path = [[NSBundle mainBundle] pathForResource:@"English" ofType:@"lproj"];
+        path = [[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"];
     else if(_selectedLanguage==CHINESE_LANGUAGE)
         path = [[NSBundle mainBundle] pathForResource:@"zh" ofType:@"lproj"];
     else if(_selectedLanguage==FRENCH_LANGUAGE)
@@ -186,6 +193,16 @@
         path = [[NSBundle mainBundle] pathForResource:@"it" ofType:@"lproj"];
     else if (_selectedLanguage == AR_LANGUAGE)
         path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
+    else if (_selectedLanguage == DE_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"de" ofType:@"lproj"];
+    else if (_selectedLanguage == SP_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"es-MX" ofType:@"lproj"];
+    else if (_selectedLanguage == JP_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"ja" ofType:@"lproj"];
+    else if (_selectedLanguage == RU_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"ru" ofType:@"lproj"];
+    else if (_selectedLanguage == PT_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"pt" ofType:@"lproj"];
     
     NSBundle* languageBundle = [NSBundle bundleWithPath:path];
     NSString* str=[languageBundle localizedStringForKey:key value:@"" table:nil];

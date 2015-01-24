@@ -36,19 +36,34 @@
     [super viewDidLoad];
     
     credentials = appDelegate.credentials;
-
+    
     [self customizeView];
+    
     [self addLocalization];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self translate];
+    [super viewWillAppear:animated];
+    
+}
 
-
+-(void)translate
+{
+    _titleLabel.text = [appDelegate languageSelectedStringForKey:@"Please enter your credentials"];
+    [_accountButton setTitle:[appDelegate languageSelectedStringForKey:@"Create Account"] forState:UIControlStateNormal];
+    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
+                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
+                                                                            attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+}
 
 - (IBAction)accountAction:(UIButton *)sender
 {
     [_activity startAnimating];
  if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
+     NSString* message = [appDelegate languageSelectedStringForKey:@"No Internet connection"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:nil];
      [_activity stopAnimating];
      return;
 }
@@ -61,7 +76,8 @@
                                  [_activity stopAnimating];
                              }
                              else {
-                                 [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Please use a valid email",nil) andTitle:@"Oh no"];
+                                 NSString* message = [appDelegate languageSelectedStringForKey:@"Please use a valid email"];
+                                 [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:nil];
                                  [_activity stopAnimating];
                              }
                          }
@@ -89,7 +105,8 @@
                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
     _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
                                                                               attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"confirm password"
+    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
+                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
                                                                             attributes:@{NSForegroundColorAttributeName: whiteColor}];
 
     [_accountButton setBackgroundColor:[UIColor clearColor]];
@@ -110,9 +127,9 @@
             field.layer.borderWidth = 1.0;
             field.layer.borderColor = BLUE_COLOR.CGColor;
             field.backgroundColor = [UIColor clearColor];
-//            field.layer.cornerRadius = 6.0;
         }
     }
+
 }
 
 
@@ -173,6 +190,7 @@
 {
     appDelegate.signInVC.textFieldEmail.text = credentials.email;
     appDelegate.signInVC.textFieldPassword.text = credentials.password;
+   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *repeatTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *labelConfirmPassword;
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewBack;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 

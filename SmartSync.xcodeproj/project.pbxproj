@@ -115,6 +115,7 @@
 		A0BF49B918804ACB00D7E5EE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BF49AD18804ACB00D7E5EE /* SBJsonWriter.m */; };
 		A0D4E13A189163E9008938ED /* SSPhotoSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4E138189163E9008938ED /* SSPhotoSyncViewController.m */; };
 		A0D4E13B189163E9008938ED /* SSPhotoSyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D4E139189163E9008938ED /* SSPhotoSyncViewController.xib */; };
+		A0E52AA51A73DD5500D1FCAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A095B9BE1A6419DA0019D285 /* Localizable.strings */; };
 		C87F61B619E5E38800AF1566 /* spotlight87.png in Resources */ = {isa = PBXBuildFile; fileRef = C87F61B519E5E38800AF1566 /* spotlight87.png */; };
 /* End PBXBuildFile section */
 
@@ -856,6 +857,7 @@
 				70FDFE491920277F00578C56 /* 120x120.png in Resources */,
 				70D189D4194B735700931083 /* icon57.png in Resources */,
 				A0BA8E2618EED5D90030F272 /* mailBox@2x.png in Resources */,
+				A0E52AA51A73DD5500D1FCAE /* Localizable.strings in Resources */,
 				A0BA8E2718EED5D90030F272 /* upload2-128@2x.png in Resources */,
 				438E9D9B19E56B410042366A /* 180x180.png in Resources */,
 				A0BA8E2218EED5D90030F272 /* Default-568h@2x.png in Resources */,

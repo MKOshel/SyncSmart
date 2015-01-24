@@ -211,7 +211,10 @@
 {
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied) {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"SyncSmart does not have permissions to use your contacts, check Settings->Privacy",nil) andTitle:NSLocalizedString(@"Sorry",nil)];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"SyncSmart does not have permissions to use your contacts, check Settings->Privacy"];
+        NSString* title = [appDelegate languageSelectedStringForKey:@"Sorry"];
+        
+        [SSAppDelegate showAlertWithMessage:message andTitle:title];
     }
 
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined)
@@ -226,7 +229,10 @@
             }
             else if (granted == NO)
             {
-                [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts",nil) andTitle:NSLocalizedString(@"Sorry",nil)];
+                NSString* message = [appDelegate languageSelectedStringForKey:@"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts"];
+                NSString* title = [appDelegate languageSelectedStringForKey:@"Sorry"];
+                
+                [SSAppDelegate showAlertWithMessage:message andTitle:title];
             }
         });
     }

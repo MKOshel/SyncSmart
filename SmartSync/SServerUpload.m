@@ -74,7 +74,8 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify your credentials",nil) andTitle:@"Oops"];
+                               NSString* message = [appDelegate languageSelectedStringForKey:@"Unable to connect, please verify your credentials"];
+                               [SSAppDelegate showAlertWithMessage:message andTitle:nil];
                                [[appDelegate.signInVC getIndicator] stopAnimating];
                                [[appDelegate.signInVC getIndicator] setHidden:YES];
                            });
@@ -147,7 +148,8 @@
     {
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Unable to connect, please verify your credentials",nil) andTitle:@"Oops"];
+                           NSString* message = [appDelegate languageSelectedStringForKey:@"Unable to connect, please verify your credentials"];
+                           [SSAppDelegate showAlertWithMessage:message andTitle:nil];
                            [[appDelegate.signInVC getIndicator] stopAnimating];
                            [[appDelegate.signInVC getIndicator] setHidden:YES];
                        });
@@ -248,25 +250,29 @@
     NSLog(@"JSON arr COUNT%lu",(unsigned long)responseArr.count);
     
     if (responseArr.count == 1) {
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Account created",nil) delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"Account created"];
+        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
     else if (responseArr.count == 3)
     {
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Please insert valid email address",nil) delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"Please insert valid email address"];
+
+        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
     
     else if ([response isEqualToString:@"200"]) {
-        
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Upload completed, your contacts have been backed up",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"Upload completed, your contacts have been backed up"];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alertView.tag = 4;
         
         [alertView show];
     }
     else if ([response isEqualToString:@"500"])
     {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Mail already exists",nil) andTitle:@"Oops"];
+        NSString* message = [appDelegate languageSelectedStringForKey:@"Mail already exists"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:@"Oops"];
     }
     
     else if ([response hasPrefix:@"<!DOCTYPE"])
@@ -275,7 +281,8 @@
     }
     else if ([response isEqualToString:@"Internal Server Error"])
     {
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry",nil) message:NSLocalizedString(@"Internal server error",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        NSString* title = [appDelegate languageSelectedStringForKey:@"Sorry"];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(title,nil) message:NSLocalizedString(@"Internal server error",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         alert.tag = 6;
         
         [alert show];
