@@ -151,8 +151,9 @@
 //        CFRelease(personNumbers);
         
     }
-    
-    CFRelease(phoneContacts);
+    if (phoneContacts !=nil) {
+        CFRelease(phoneContacts);
+    }
     
     NSLog(@"ARRAY OF CONTACTS IS : %@",allContacts);
    
@@ -530,7 +531,8 @@
     [appDelegate.syncVC.progressView setHidden:YES];
     [appDelegate.syncVC.progressView setProgress:0.0];
     
-    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Contacts installed",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    NSString* message = [appDelegate languageSelectedStringForKey:@"Contacts installed"];
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     alert.tag = 3;
     [alert show];
     

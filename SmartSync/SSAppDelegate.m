@@ -17,12 +17,12 @@
 #define FRENCH_LANGUAGE 2
 #define CHINESE_LANGUAGE 3
 #define IT_LANGUAGE 4
-#define AR_LANGUAGE 5
-#define DE_LANGUAGE 6
-#define PT_LANGUAGE 7
-#define JP_LANGUAGE 8
-#define RU_LANGUAGE 9
-#define SP_LANGUAGE 10
+#define AR_LANGUAGE 20
+#define DE_LANGUAGE 5
+#define PT_LANGUAGE 6
+#define JP_LANGUAGE 7
+#define RU_LANGUAGE 8
+#define SP_LANGUAGE 9
 
 @implementation SSAppDelegate
 
@@ -32,8 +32,7 @@
     [GPGuardPost setPublicAPIKey:@"pubkey-0yxmbgkg980hdtqv4faxz1uf57wy2t-8"];
 
     [self initialize];
- 
-    _selectedLanguage = RU_LANGUAGE;
+    
     _oldContactsCount = [_contact getCountOfAllContacts];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -50,8 +49,10 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* userEmail = [defaults valueForKey:@"email"];
     
-    if (userEmail == nil || [userEmail isEqual:@""]) {
+    if (userEmail == nil || [userEmail isEqual:@""] || ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined || ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied)
+    {
         self.window.rootViewController = _signInVC;
+
     }
     else {
         self.window.rootViewController= _signInVC;
@@ -61,6 +62,18 @@
     }
 
     [self.window makeKeyAndVisible];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        // app already launched
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        LanguageViewController* languageVC = [[LanguageViewController alloc]init];
+        [_signInVC presentViewController:languageVC animated:YES completion:nil];
+    }
     
    // [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)| UIRemoteNotificationTypeAlert];
     
@@ -203,6 +216,9 @@
         path = [[NSBundle mainBundle] pathForResource:@"ru" ofType:@"lproj"];
     else if (_selectedLanguage == PT_LANGUAGE)
         path = [[NSBundle mainBundle] pathForResource:@"pt" ofType:@"lproj"];
+    else if (_selectedLanguage == RO_LANGUAGE)
+        path = [[NSBundle mainBundle] pathForResource:@"ro" ofType:@"lproj"];
+    
     
     NSBundle* languageBundle = [NSBundle bundleWithPath:path];
     NSString* str=[languageBundle localizedStringForKey:key value:@"" table:nil];

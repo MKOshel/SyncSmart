@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SSyncViewController.h"
 #import "SSignInViewController.h"
+#import "LanguageViewController.h"
 #import "SSCredentials.h"
 #import "SServerUpload.h"
 #import "SSContact.h"

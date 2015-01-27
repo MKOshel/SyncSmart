@@ -7,6 +7,7 @@
 //
 
 #import "SSyncViewController.h"
+#import "LanguageViewController.h"
 #import "SSContact.h"
 #import <AddressBook/AddressBook.h>
 #import "SServerUpload.h"
@@ -87,6 +88,29 @@
     return image;
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self translate];
+    
+    [super viewWillAppear:animated];
+}
+
+-(void)translate
+{
+    NSString* sendTitle = [appDelegate languageSelectedStringForKey:@"Save To Cloud"];
+    NSString* installTitle = [appDelegate languageSelectedStringForKey:@"Import Contacts"];
+    
+    [_buttonSend setTitle:NSLocalizedString(sendTitle,nil) forState:UIControlStateNormal];
+    [_buttonInstall setTitle:NSLocalizedString(installTitle,nil) forState:UIControlStateNormal];
+    
+    _labelInfoPhoneContacts.text = [appDelegate languageSelectedStringForKey:_labelInfoPhoneContacts.text];
+    _labelInfoServerContacts.text = [appDelegate languageSelectedStringForKey:_labelInfoServerContacts.text];
+    
+    [_buttonDelete setTitle:[appDelegate languageSelectedStringForKey:_buttonDelete.titleLabel.text] forState:UIControlStateNormal];
+    [_buttonLogout setTitle:[appDelegate languageSelectedStringForKey:_buttonLogout.titleLabel.text] forState:UIControlStateNormal];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -164,8 +188,11 @@
     _buttonInstall.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.numberOfLines = 3;
 
-    [_buttonSend setTitle:NSLocalizedString(@"Save To Cloud",nil) forState:UIControlStateNormal];
-    [_buttonInstall setTitle:NSLocalizedString(@"Import Contacts",nil) forState:UIControlStateNormal];
+    NSString* sendTitle = [appDelegate languageSelectedStringForKey:@"Save To Cloud"];
+    NSString* installTitle = [appDelegate languageSelectedStringForKey:@"Import Contacts"];
+    
+    [_buttonSend setTitle:NSLocalizedString(sendTitle,nil) forState:UIControlStateNormal];
+    [_buttonInstall setTitle:NSLocalizedString(installTitle,nil) forState:UIControlStateNormal];
 }
 
 
@@ -277,12 +304,19 @@
     [self.view removeFromSuperview];
 }
 
+- (IBAction)selectLanguage:(UIButton *)sender {
+    LanguageViewController* languageVC = [[LanguageViewController alloc]init];
+    
+    [self presentViewController:languageVC animated:YES completion:nil];
+}
 
 
 - (IBAction)deleteAllContacts:(UIButton *)sender
 {
+    NSString* message = [appDelegate languageSelectedStringForKey:@"We suggest you backup your contacts before proceeding to deletion"];
+    NSString* continueTitle = [appDelegate languageSelectedStringForKey:@"Already backed up"];
     
-    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"We suggest you backup your contacts before proceeding to deletion",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Back",nil) otherButtonTitles:NSLocalizedString(@"Already backed up",nil), nil];
+    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Back",nil) otherButtonTitles:NSLocalizedString(continueTitle,nil), nil];
     alertV.tag = 5;
     [alertV show];
 
@@ -328,7 +362,10 @@
     // Deletion question
     if (alertView.tag == 5) {
         if (buttonIndex == 1) {
-                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Are you sure you want to delete all your contacts ?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil), nil];
+            NSString* yes = [appDelegate languageSelectedStringForKey:@"Yes"];
+            NSString* no = [appDelegate languageSelectedStringForKey:@"No"];
+            NSString* message = [appDelegate languageSelectedStringForKey:@"Are you sure you want to delete all your contacts ?"];
+                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(no,nil) otherButtonTitles:NSLocalizedString(yes,nil), nil];
                 alert.tag = 1;
                 [alert show];
         }

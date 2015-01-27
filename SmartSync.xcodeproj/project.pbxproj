@@ -64,6 +64,7 @@
 		A021A46518A9174A00B4726A /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A021A45318A9174A00B4726A /* UIToolbar+FlatUI.m */; };
 		A059828018EAF6F300C669F1 /* SSInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A059827E18EAF6F300C669F1 /* SSInfoViewController.m */; };
 		A059828118EAF6F300C669F1 /* SSInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A059827F18EAF6F300C669F1 /* SSInfoViewController.xib */; };
+		A05AE55D1A77E74A00F5CB7F /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05AE55C1A77E74A00F5CB7F /* LanguageViewController.m */; };
 		A05DF40618BCB3C800A8BFAA /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DF40518BCB3C800A8BFAA /* FXBlurView.m */; };
 		A0861066188405D100F1A512 /* SSUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0861065188405D000F1A512 /* SSUpdateManager.m */; };
 		A095777F18D071FA00C00AD0 /* SSLoadingParams.m in Sources */ = {isa = PBXBuildFile; fileRef = A095777E18D071FA00C00AD0 /* SSLoadingParams.m */; };
@@ -248,6 +249,8 @@
 		A059827D18EAF6F300C669F1 /* SSInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSInfoViewController.h; path = SmartSync/SSInfoViewController.h; sourceTree = "<group>"; };
 		A059827E18EAF6F300C669F1 /* SSInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSInfoViewController.m; path = SmartSync/SSInfoViewController.m; sourceTree = "<group>"; };
 		A059827F18EAF6F300C669F1 /* SSInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSInfoViewController.xib; path = SmartSync/SSInfoViewController.xib; sourceTree = "<group>"; };
+		A05AE55B1A77E74A00F5CB7F /* LanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageViewController.h; path = SmartSync/LanguageViewController.h; sourceTree = "<group>"; };
+		A05AE55C1A77E74A00F5CB7F /* LanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageViewController.m; path = SmartSync/LanguageViewController.m; sourceTree = "<group>"; };
 		A05DF40418BCB3C800A8BFAA /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		A05DF40518BCB3C800A8BFAA /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		A0861064188405D000F1A512 /* SSUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSUpdateManager.h; path = SmartSync/SSUpdateManager.h; sourceTree = "<group>"; };
@@ -359,6 +362,7 @@
 		A0E52AA21A72937000D1FCAE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A0E52AA31A72979900D1FCAE /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A0E52AA41A729AC900D1FCAE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A0E52AA61A76A2E500D1FCAE /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C87F61B519E5E38800AF1566 /* spotlight87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight87.png; sourceTree = "<group>"; };
 		E22E5EE91A7128DD007DF9E6 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2DC3CA41A6C25B4007621BF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -688,6 +692,8 @@
 				A059827D18EAF6F300C669F1 /* SSInfoViewController.h */,
 				A059827E18EAF6F300C669F1 /* SSInfoViewController.m */,
 				A059827F18EAF6F300C669F1 /* SSInfoViewController.xib */,
+				A05AE55B1A77E74A00F5CB7F /* LanguageViewController.h */,
+				A05AE55C1A77E74A00F5CB7F /* LanguageViewController.m */,
 			);
 			name = interface;
 			path = ..;
@@ -929,6 +935,7 @@
 				A0BF49B918804ACB00D7E5EE /* SBJsonWriter.m in Sources */,
 				A00B84F919D40E6500C6F615 /* UIPopoverController+FlatUI.m in Sources */,
 				A098F9F9187D7C0A0038C6FE /* main.m in Sources */,
+				A05AE55D1A77E74A00F5CB7F /* LanguageViewController.m in Sources */,
 				A021A46418A9174A00B4726A /* UITableViewCell+FlatUI.m in Sources */,
 				A021A46318A9174A00B4726A /* UITabBar+FlatUI.m in Sources */,
 				703B141219086053002ACA1C /* UIImageView+AFNetworking.m in Sources */,
@@ -990,6 +997,7 @@
 				A0E52AA21A72937000D1FCAE /* ru */,
 				A0E52AA31A72979900D1FCAE /* es-MX */,
 				A0E52AA41A729AC900D1FCAE /* de */,
+				A0E52AA61A76A2E500D1FCAE /* he */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

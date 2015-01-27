@@ -323,7 +323,8 @@
 
 -(void)forgotPressed
 {
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please enter your e-mail address so we can reset your password",nil) message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    NSString* title = [appDelegate languageSelectedStringForKey:@"Please enter your e-mail address so we can reset your password"];
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(title,nil) message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     myAlertView.tag = tagForgot;
     forgotField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
