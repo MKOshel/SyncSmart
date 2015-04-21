@@ -277,7 +277,7 @@
         
         NSString *contactPhoneNo = (NSString*)ABMultiValueCopyValueAtIndex(personNumbers, k);
         NSString *label = (NSString*)ABMultiValueCopyLabelAtIndex(personNumbers, k);
-        NSLog(@"LABEL %@ AND FUCKING PHONE %@", (NSString *) label, (NSString *) contactPhoneNo);
+        //NSLog(@"LABEL %@ AND FUCKING PHONE %@", (NSString *) label, (NSString *) contactPhoneNo);
         
         if ([label isEqualToString:@"_$!<Home>!$_"]) {
             //               number.homeNumber = (NSString*)contactPhoneNo;
@@ -391,8 +391,12 @@
     for(CFIndex i=0; i < count; i++)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [appDelegate.syncVC.progressView setHidden:NO];
-            [appDelegate.syncVC.progressView setProgress:(double)i/count];
+            [appDelegate.syncVC.progressLabel setHidden:NO];
+
+            [appDelegate.syncVC.progressLabel setProgress:(float)i/count
+                                                   timing:TPPropertyAnimationTimingEaseOut
+                                                 duration:1.0
+                                                    delay:0.0];
         });
         ABRecordRef person = CFArrayGetValueAtIndex(theArray, i);
         BOOL result = ABAddressBookRemoveRecord ([SSContact getBook],person,NULL);
@@ -412,8 +416,12 @@
     ABAddressBookSave([SSContact getBook], NULL);
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [appDelegate.syncVC.progressView setProgress:0.0];
-        [appDelegate.syncVC.progressView setHidden:YES];
+       // [appDelegate.syncVC.progressLabel setHidden:YES];
+        
+        [appDelegate.syncVC.progressLabel setProgress:0
+                                               timing:TPPropertyAnimationTimingEaseOut
+                                             duration:1.0
+                                                delay:0.0];
     
         NSString* message = [appDelegate languageSelectedStringForKey:@"Contacts deleted"];
         UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -508,7 +516,11 @@
         //
         ABAddressBookAddRecord([SSContact getBook], newPerson, &error);
         dispatch_async(dispatch_get_main_queue(),^{
-            [appDelegate.syncVC.progressView setProgress:(double)i/count];
+           // [appDelegate.syncVC.progressView setProgress:(double)i/count];
+            [appDelegate.syncVC.progressLabel setProgress:(float)i/count
+                                                   timing:TPPropertyAnimationTimingEaseOut
+                                                 duration:1.0
+                                                    delay:0.0];
         });
         CFRelease(newPerson);
         //CFRelease(addressBook);
@@ -528,8 +540,10 @@
 
 -(void)showCompletionMessage
 {
-    [appDelegate.syncVC.progressView setHidden:YES];
-    [appDelegate.syncVC.progressView setProgress:0.0];
+    //[appDelegate.syncVC.progressLabel setHidden:YES];
+    [appDelegate.syncVC.progressLabel setProgress:0.0];
+//    [appDelegate.syncVC.progressView setHidden:YES];
+//    [appDelegate.syncVC.progressView setProgress:0.0];
     
     NSString* message = [appDelegate languageSelectedStringForKey:@"Contacts installed"];
     UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

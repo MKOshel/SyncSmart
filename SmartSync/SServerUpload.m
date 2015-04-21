@@ -150,6 +150,9 @@
                        ^{
                            NSString* message = [appDelegate languageSelectedStringForKey:@"Unable to connect, please verify your credentials"];
                            [SSAppDelegate showAlertWithMessage:message andTitle:nil];
+                           [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"email"];
+                           [[NSUserDefaults standardUserDefaults] synchronize];
+                          
                            [[appDelegate.signInVC getIndicator] stopAnimating];
                            [[appDelegate.signInVC getIndicator] setHidden:YES];
                        });
@@ -294,8 +297,7 @@
 
 -(void)hideProgress
 {
-    [appDelegate.syncVC.progressView setHidden:YES];
-    [appDelegate.syncVC.progressView setProgress:0.0];
+    [appDelegate.syncVC.progressLabel setProgress:0.0];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -346,8 +348,15 @@
 
 -(void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
-    [appDelegate.syncVC.progressView setHidden:NO];
-    [appDelegate.syncVC.progressView setProgress:(float)totalBytesWritten/totalBytesExpectedToWrite animated:YES];
+
+    
+    [appDelegate.syncVC.progressLabel setProgress:(float)totalBytesWritten/totalBytesExpectedToWrite
+                               timing:TPPropertyAnimationTimingEaseOut
+                             duration:1.0
+                                delay:0.0];
+    
+//    [appDelegate.syncVC.progressView setHidden:NO];
+//    [appDelegate.syncVC.progressView setProgress:(float)totalBytesWritten/totalBytesExpectedToWrite animated:YES];
 }
 
 @end

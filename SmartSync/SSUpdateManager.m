@@ -130,8 +130,15 @@
 
 -(void)updateProgressViewWithProgress:(double)progress
 {
-    [appDelegate.syncVC.progressView setHidden:NO];
-    [appDelegate.syncVC.progressView setProgress:progress];
+    
+    [appDelegate.syncVC.progressLabel setProgress:(float)progress
+                                           timing:TPPropertyAnimationTimingEaseOut
+                                         duration:1.0
+                                            delay:0.0];
+    
+//    [appDelegate.syncVC.progressView setHidden:NO];
+//    [appDelegate.syncVC.progressView setProgress:progress];
+    
 }
 
 -(BOOL)processPhotos:(NSDictionary*)resultDict

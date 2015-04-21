@@ -65,7 +65,6 @@
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"CONNECTION FAILED WITH ERROR %@",[error description]);
-    [connection cancel];
     [self cancelRequest];
 
 }

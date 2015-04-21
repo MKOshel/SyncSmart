@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FUIButton.h"
 #import "SSUpdateManager.h"
+#import "KAProgressLabel.h"
 
 @interface SSyncViewController : UIViewController<UIAlertViewDelegate,UIApplicationDelegate>
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIView *menuView;
 
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
+@property (strong, nonatomic) IBOutlet KAProgressLabel *progressLabel;
 
 @property (nonatomic,strong) SSUpdateManager *updateManager;
 @property (strong, nonatomic) IBOutlet UIButton *buttonSend;
@@ -32,5 +34,6 @@
 @property (strong, nonatomic) NSString* email;
 -(void)setCountText;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnLanguage;
 
 @end

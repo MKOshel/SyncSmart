@@ -58,6 +58,22 @@
     [self setCountText];
 }
 
+
+
+-(void)customizeProgressLabel
+{
+
+    _progressLabel.fillColor = [UIColor clearColor];
+    _progressLabel.trackColor = trackCol;
+    _progressLabel.progressColor = progressCol;
+    _progressLabel.roundedCornersWidth = 10.0;
+    
+    _progressLabel.progressWidth = 10;
+    _progressLabel.trackWidth = 10;
+}
+
+
+
 -(void)addLocalization
 {
     _labelInfoPhoneContacts.text = NSLocalizedString(@"valid contacts on phone", nil);
@@ -69,8 +85,8 @@
 -(void)setButtonsColor
 {
 
-    [_buttonSend setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
-    [_buttonInstall setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
+//    [_buttonSend setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
+//    [_buttonInstall setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
 
 }
 
@@ -104,11 +120,12 @@
     [_buttonSend setTitle:NSLocalizedString(sendTitle,nil) forState:UIControlStateNormal];
     [_buttonInstall setTitle:NSLocalizedString(installTitle,nil) forState:UIControlStateNormal];
     
-    _labelInfoPhoneContacts.text = [appDelegate languageSelectedStringForKey:_labelInfoPhoneContacts.text];
-    _labelInfoServerContacts.text = [appDelegate languageSelectedStringForKey:_labelInfoServerContacts.text];
+    _labelInfoPhoneContacts.text = [appDelegate languageSelectedStringForKey:@"valid contacts on phone"];
+    _labelInfoServerContacts.text = [appDelegate languageSelectedStringForKey:@"contacts on server"];
     
-    [_buttonDelete setTitle:[appDelegate languageSelectedStringForKey:_buttonDelete.titleLabel.text] forState:UIControlStateNormal];
-    [_buttonLogout setTitle:[appDelegate languageSelectedStringForKey:_buttonLogout.titleLabel.text] forState:UIControlStateNormal];
+    [_buttonDelete setTitle:[appDelegate languageSelectedStringForKey:@"Delete Contacts"] forState:UIControlStateNormal];
+    [_buttonLogout setTitle:[appDelegate languageSelectedStringForKey:@"Logout"] forState:UIControlStateNormal];
+    [_btnLanguage setTitle:[appDelegate languageSelectedStringForKey:@"Select Language"] forState:UIControlStateNormal];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -138,18 +155,27 @@
 - (IBAction)downloadAndInstall:(FUIButton *)sender
 {
     if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
+        
+        NSString* message = [appDelegate languageSelectedStringForKey:@"No Internet connection"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:nil];
         return;
     }
-    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Install contacts from server ?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil), nil];
+   
+    NSString* message = [appDelegate languageSelectedStringForKey:@"Install contacts from server ?"];
+    NSString* yes = [appDelegate languageSelectedStringForKey:@"Yes"];
+    NSString* no =[appDelegate languageSelectedStringForKey:@"No"];
+    
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(no,nil) otherButtonTitles:NSLocalizedString(yes,nil), nil];
     av.tag = TAG_INSTALL_CONTACTS;
+    
     [av show];
     //[self install];
 }
 
 -(void)install
 {
-    _progressView.hidden = NO;
+    //_progressView.hidden = NO;
+    _progressLabel.hidden = NO;
    // SServerUpload *up = appDelegate.serverUpload;
     _updateManager = [[SSUpdateManager alloc] init];
 
@@ -162,8 +188,9 @@
 
 -(void)customizeView
 {
+    [self customizeProgressLabel];
      
-    _mainView.backgroundColor = BACK_COLOR;
+    //_mainView.backgroundColor = BACK_COLOR;
     
     for (UIButton *button in _mainView.subviews)
     {
@@ -172,29 +199,77 @@
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
 //            button.buttonColor = BACK_COLOR;
-            button.layer.borderWidth = 1.5;
-            button.layer.cornerRadius = 50.0;
+           // button.layer.borderWidth = 1.5;
+           // button.layer.cornerRadius = 55.0;
             button.layer.borderColor = [UIColor peterRiverColor].CGColor;
-            [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]];
-            button.layer.masksToBounds = YES;
+            [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0]];
+           // button.layer.masksToBounds = YES;
+            
         }
     }
     
-    [_contactsCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
-    [_serverCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
+    //[_contactsCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
+   // [_serverCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
     _labelAccount.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:13.0];
     _buttonSend.titleLabel.numberOfLines = 3;
     _buttonSend.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _buttonInstall.titleLabel.numberOfLines = 3;
+    
+    _buttonDelete.titleLabel.numberOfLines = 3;
+    _buttonDelete.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _buttonLogout.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _buttonLogout.titleLabel.numberOfLines = 3;
+    _btnLanguage.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _btnLanguage.titleLabel.numberOfLines = 3;
 
     NSString* sendTitle = [appDelegate languageSelectedStringForKey:@"Save To Cloud"];
     NSString* installTitle = [appDelegate languageSelectedStringForKey:@"Import Contacts"];
     
     [_buttonSend setTitle:NSLocalizedString(sendTitle,nil) forState:UIControlStateNormal];
     [_buttonInstall setTitle:NSLocalizedString(installTitle,nil) forState:UIControlStateNormal];
+    
+    [_buttonInstall setTitleEdgeInsets:UIEdgeInsetsMake(4.0f, 4.0f, 0.0f, 0.0f)];
+        [_buttonSend setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 2.0f, 0.0f, 0.0f)];
+
 }
 
+- (IBAction)toggleMenu:(UIButton *)sender {
+    
+    CGRect newFrame = _mainView.frame;
+    newFrame.origin.x = _menuView.frame.size.width;
+    
+    if (isShowing == NO) {
+        [UIView animateWithDuration:0.2
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             _mainView.frame = newFrame;
+                         }
+         
+                         completion:^(BOOL finished)
+         {
+             isShowing = YES;
+             
+         }];
+    }
+    newFrame.origin.x = 0;
+    
+    if (isShowing == YES) {
+        [UIView animateWithDuration:0.2
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             _mainView.frame = newFrame;
+                         }
+         
+                         completion:^(BOOL finished)
+         {
+             isShowing = NO;
+             
+         }];
+    }
+}
 
 - (IBAction)openMenu:(UIBarButtonItem *)sender
 {
@@ -237,10 +312,14 @@
 - (IBAction)sendContacts:(FUIButton *)sender
 {
     if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
+        NSString* noInternet  = [appDelegate languageSelectedStringForKey:@"No Internet connection"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(noInternet,nil) andTitle:nil];
         return;
     }
-    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"Save contacts to server ? This will overwrite your current backup.",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Yes",nil),nil];
+    NSString* message = [appDelegate languageSelectedStringForKey:@"Save contacts to server ? This will overwrite your current backup."];
+    NSString* yes = [appDelegate languageSelectedStringForKey:@"Yes"];
+    NSString* no =[appDelegate languageSelectedStringForKey:@"No"];
+    UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(no,nil) otherButtonTitles:NSLocalizedString(yes,nil),nil];
     av.tag = TAG_SEND_CONTACTS;
     [av show];
 //    [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
@@ -278,6 +357,7 @@
 
 - (IBAction)logoutPressed:(UIButton *)sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"logoutPressed" object:nil];
     CGRect newFrame = _mainView.frame;
     newFrame.origin.x = _menuView.frame.size.width;
     
@@ -315,8 +395,9 @@
 {
     NSString* message = [appDelegate languageSelectedStringForKey:@"We suggest you backup your contacts before proceeding to deletion"];
     NSString* continueTitle = [appDelegate languageSelectedStringForKey:@"Already backed up"];
+    NSString* back = [appDelegate languageSelectedStringForKey:@"Back"];
     
-    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Back",nil) otherButtonTitles:NSLocalizedString(continueTitle,nil), nil];
+    UIAlertView* alertV = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:self cancelButtonTitle:NSLocalizedString(back,nil) otherButtonTitles:NSLocalizedString(continueTitle,nil), nil];
     alertV.tag = 5;
     [alertV show];
 
@@ -414,6 +495,10 @@
     [_buttonInstall setEnabled:YES];
     [_buttonSend setEnabled:YES];
     [shadowView removeFromSuperview];
+}
+- (IBAction)openEULA:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.syncsmart.ftsapps.com"]];
+
 }
 
 - (void)didReceiveMemoryWarning

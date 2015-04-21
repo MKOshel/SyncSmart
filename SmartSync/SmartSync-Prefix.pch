@@ -44,12 +44,16 @@
 
 #define appDelegate ((SSAppDelegate*)[[UIApplication sharedApplication] delegate])
 
-#define superBlue [UIColor colorWithRed:63/255.0f green:181/255.0f blue:199/255.0f alpha:1.0f]
+#define trackCol [UIColor colorWithRed:79/255.0f green:66/255.0f blue:124/255.0f alpha:1.0f]
+
+#define progressCol [UIColor colorWithRed:246/255.0f green:71/255.0f blue:70/255.0f alpha:1.0f]
 
 #define BACK_COLOR [UIColor colorWithRed:22/255.0f green:22/255.0f blue:27/255.0f alpha:1.0f]
 
 #define MENU_COLOR [UIColor colorWithRed:15/255.0f green:37/255.0f blue:67/255.0f alpha:1.0f]
 
 #define BLUE_COLOR [UIColor colorWithRed:17/255.0f green:63/255.0f blue:148/255.0f alpha:1.0f]
+
+#define LOGIN_BUTTON_COLOR [UIColor colorWithRed:192/255.0f green:48/255.0f blue:75/255.0f alpha:1.0f]
 
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

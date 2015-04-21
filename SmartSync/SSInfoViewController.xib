@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SSInfoViewController">
             <connections>
+                <outlet property="btnBack" destination="EFv-V1-qYh" id="cyA-7C-0N4"/>
                 <outlet property="textViewInfo" destination="8mJ-x9-bG7" id="3iZ-GT-hwk"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="8mJ-x9-bG7">
-                    <rect key="frame" x="20" y="47" width="280" height="425"/>
+                    <rect key="frame" x="8" y="47" width="304" height="513"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <string key="text">Hello !   SyncSmart is an easy to use app which can backup your contacts in the cloud and also provides you with the option to transfer/move all of your contacts on different smartphones.   1) Create account . 2) Sign In . 3) Save your contacts . 4) Now just sign in from another device and import your contacts .   That smart, that simple !   ! SyncSmart does not take into consideration empty contacts.  ! Total count of contacts may be different than the one showed on your phone , depending on what contacts you have selected to be displayed in your contacts app.  ! SyncSmartFTS does not take into consideration empty contacts, contact avatars , dates of any kind, addresses , notes and social profile.  </string>

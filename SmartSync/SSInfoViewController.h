@@ -10,5 +10,6 @@
 
 @interface SSInfoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *textViewInfo;
+@property (strong, nonatomic) IBOutlet UIButton *btnBack;
 
 @end

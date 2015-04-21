@@ -19,7 +19,7 @@
 -(id)init
 {
     if (self = [super init]) {
-        _languages = (NSMutableArray*)@[@"English",@"Romanian",@"French",@"Chinese",@"Italian",@"German",@"Portuguese",@"Japanese",@"Russian",@"Spanish"];
+        _languages = (NSMutableArray*)@[@"English",@"Romanian",@"French",@"Chinese",@"Italian",@"German",@"Portuguese",@"Japanese",@"Russian",@"Spanish",@"Hebrew",@"Arabic"];
     }
     
     return self;
@@ -29,12 +29,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView setTableFooterView:[[UIView alloc]initWithFrame:CGRectZero]];
+    //[self.tableView setBackgroundColor:BACK_COLOR];
+    UIImageView* iv = [[UIImageView alloc]initWithFrame:self.tableView.frame];
+    [iv setImage:[UIImage imageNamed:@"640x1136"]];
+    //[self.view insertSubview:iv belowSubview:self.tableView];
     
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
+    [self.tableView setBackgroundView:iv];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)customizeView
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +72,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = _languages[indexPath.row];
     
     return cell;
@@ -68,15 +84,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.textColor = [UIColor redColor];
+   
     [appDelegate setSelectedLanguage:(int)indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:(int)indexPath.row] forKey:@"language"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    //NSString* title = [appDelegate languageSelectedStringForKey:@"Hi! Please select your language"];
-    return @"Hi! Please select your language";
+    NSString* title = [appDelegate languageSelectedStringForKey:@"Select Language"];
+    
+    return title;
 }
 
 /*

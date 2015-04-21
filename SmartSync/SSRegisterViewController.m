@@ -53,9 +53,9 @@
 {
     _titleLabel.text = [appDelegate languageSelectedStringForKey:@"Please enter your credentials"];
     [_accountButton setTitle:[appDelegate languageSelectedStringForKey:@"Create Account"] forState:UIControlStateNormal];
-    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
-                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
-                                                                            attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
+//                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
+//                                                                            attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 - (IBAction)accountAction:(UIButton *)sender
@@ -98,35 +98,38 @@
 
 -(void)customizeView
 {
-    self.view.backgroundColor = BACK_COLOR;
+    //self.view.backgroundColor = BACK_COLOR;
 
-    UIColor* whiteColor = [UIColor whiteColor];
-    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
-                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
-                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
-                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
-                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
+//    UIColor* whiteColor = [UIColor whiteColor];
+//    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+//                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
+//    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+//                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
+//    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
+//                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
+//                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    
+    [_emailTextField setBackground:[UIImage imageNamed:@"Email_field"]];
+    [_passwordTextField setBackground:[UIImage imageNamed:@"Password_field"]];
+    [_repeatTextField setBackground:[UIImage imageNamed:@"Password_field"]];
 
-    [_accountButton setBackgroundColor:[UIColor clearColor]];
+
+    [_accountButton setBackgroundColor:LOGIN_BUTTON_COLOR];
     [_accountButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _accountButton.layer.cornerRadius = 6.0;
-    _accountButton.layer.borderWidth = 1.0;
-    _accountButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    _accountButton.layer.cornerRadius = 15.0;
     [_accountButton.titleLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
    
     [_titleLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
-    //_titleLabel.textColor = [UIColor colorWithRed:212/255.0 green:0/255.0 blue:28/255.0 alpha:1];
     [_titleLabel setTextColor:[UIColor whiteColor]];
     
     for (UITextField *field in self.view.subviews)
     {
         if ([field isKindOfClass:[UITextField class]])
         {
-            field.layer.borderWidth = 1.0;
-            field.layer.borderColor = BLUE_COLOR.CGColor;
+            //field.layer.borderWidth = 1.0;
+            //field.layer.borderColor = [UIColor whiteColor].CGColor;
             field.backgroundColor = [UIColor clearColor];
+            field.layer.cornerRadius = 15.0;
         }
     }
 
@@ -136,9 +139,7 @@
 -(void)addLocalization
 {
     _titleLabel.text = NSLocalizedString(@"Please enter your credentials",nil);
-    _emailTextField.placeholder = NSLocalizedString(@"email", nil);
-    _passwordTextField.placeholder = NSLocalizedString(@"password", nil);
-    _repeatTextField.placeholder = NSLocalizedString(@"confirm password", nil);
+    //_repeatTextField.placeholder = NSLocalizedString(@"confirm password", nil);
     _accountButton.titleLabel.text = NSLocalizedString(@"Create Account",nil);
 }
 
@@ -185,7 +186,7 @@
 }
 
 
-#pragma account created
+#pragma mark Account created
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     appDelegate.signInVC.textFieldEmail.text = credentials.email;

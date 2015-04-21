@@ -71,6 +71,8 @@
         [_imageViewBack setImage:[UIImage imageNamed:@"Default.png"]];
     }
     [self addLocalization];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(translate) name:@"logoutPressed" object:nil];
 }
 
 
@@ -87,13 +89,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+
+
 -(void)customizeView
 {
-    self.view.backgroundColor = superBlue;
-    self.view.backgroundColor = [UIColor colorWithRed:21/255.0f green:22/255.0f blue:27/255.0f alpha:1];
-    UIColor* whiteColor = [UIColor whiteColor];
-    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password" attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email" attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    //self.view.backgroundColor = superBlue;
+    //self.view.backgroundColor = [UIColor colorWithRed:21/255.0f green:22/255.0f blue:27/255.0f alpha:1];
+
+    [_textFieldEmail setBackground:[UIImage imageNamed:@"Email_field"]];
+    [_textFieldPassword setBackground:[UIImage imageNamed:@"Password_field"]];
 
 
     for (UIButton *button in _loginView.subviews)
@@ -101,19 +105,19 @@
         if ([button isKindOfClass:[UIButton class]])
         {
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            button.backgroundColor = [UIColor clearColor];
-            button.layer.cornerRadius = 6.0;
-            button.layer.borderWidth = 1.0;
-            button.layer.borderColor = [UIColor whiteColor].CGColor;
+            button.backgroundColor = LOGIN_BUTTON_COLOR;
+            button.layer.cornerRadius = 20.0;
+            //button.layer.borderWidth = 1.0;
+            //button.layer.borderColor = [UIColor whiteColor].CGColor;
             [button.titleLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
             button.titleLabel.textColor = [UIColor whiteColor];
         }
     }
+    
     [registerLabel setFont:[UIFont fontWithName:@"Neris" size:17.0]];
+    registerLabel.backgroundColor = LOGIN_BUTTON_COLOR;
     registerLabel.textColor = [UIColor whiteColor];
-    registerLabel.layer.borderWidth = 1.0;
-    registerLabel.layer.borderColor = [UIColor whiteColor].CGColor;
-    registerLabel.layer.cornerRadius = 6.0;
+    registerLabel.layer.cornerRadius = 20.0;
     registerLabel.lineBreakMode = NSLineBreakByWordWrapping;
     registerLabel.numberOfLines = 1;
     titleLabel.numberOfLines = 2;
@@ -124,11 +128,11 @@
     {
         if ([field isKindOfClass:[UITextField class]])
         {
-            field.layer.borderWidth = 1.0;
-            field.layer.borderColor = BLUE_COLOR.CGColor;
+            //field.layer.borderWidth = 1.0;
+            //field.layer.borderColor = [UIColor whiteColor].CGColor;
             field.backgroundColor = [UIColor clearColor];
             field.textColor = [UIColor whiteColor];
-//            field.layer.cornerRadius = 6.0;
+            field.layer.cornerRadius = 20.0;
 
         }
     }
@@ -140,15 +144,15 @@
     _sigInButton.titleLabel.text = NSLocalizedString(@"LOGIN", nil);
     registerLabel.text = NSLocalizedString(@"REGISTER", nil);
     _labelForgot.text = NSLocalizedString(@"Forgot password ?", nil);
-    _textFieldEmail.placeholder = NSLocalizedString(@"email", nil);
-    _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
+//    _textFieldEmail.placeholder = NSLocalizedString(@"email", nil);
+//    _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
 }
 
 -(void)translate
 {
-    [registerLabel setText:[appDelegate languageSelectedStringForKey:registerLabel.text]];
-    [_labelForgot setText:[appDelegate languageSelectedStringForKey:_labelForgot.text]];
-    [_sigInButton setTitle:[appDelegate languageSelectedStringForKey:_sigInButton.titleLabel.text] forState:UIControlStateNormal];
+    [registerLabel setText:[appDelegate languageSelectedStringForKey:@"REGISTER"]];
+    [_labelForgot setText:[appDelegate languageSelectedStringForKey:@"Forgot password ?"]];
+    [_sigInButton setTitle:[appDelegate languageSelectedStringForKey:@"LOGIN"] forState:UIControlStateNormal];
     [_textFieldEmail setPlaceholder:[appDelegate languageSelectedStringForKey:_textFieldEmail.placeholder]];
     
     
@@ -181,7 +185,9 @@
 
     }
     else if ([SSAppDelegate isNetwork]==NO) {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"No Internet connection",nil) andTitle:nil];
+        NSString* noInternet = [appDelegate languageSelectedStringForKey:@"No Internet connection"];
+        
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(noInternet,nil) andTitle:nil];
         [activityIndicator setHidden:YES];
 
     }
@@ -190,6 +196,10 @@
 
 -(void)saveLoginSession
 {
+    if ([SSAppDelegate isNetwork] == NO) {
+        return;
+    }
+    
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     
     [userDefaults setValue:appDelegate.credentials.email forKey:@"email"];
@@ -262,7 +272,7 @@
 {
     CGRect newFrame = view.frame;
     
-    newFrame.origin.y = newFrame.origin.y + 215 + _textFieldEmail.frame.size.height;
+    newFrame.origin.y = newFrame.origin.y + 200 + _textFieldEmail.frame.size.height;
     
     [UIView animateWithDuration:0.8
                           delay:0.0

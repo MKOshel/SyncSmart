@@ -1,113 +1,57 @@
-/* No comment provided by engineer. */
-"Account created" = "Account created";
+/*
+Localizable.strings
 
-/* No comment provided by engineer. */
-"Already backed up" = "Already backed up";
+GENERATED - DO NOT MODIFY - use the localio gem instead.
 
-/* No comment provided by engineer. */
-"Are you sure you want to delete all your contacts ?" = "Are you sure you want to delete all your contacts ?";
-
-/* No comment provided by engineer. */
-"Back" = "Back";
-
-/* No comment provided by engineer. */
-"confirm password" = "confirm password";
-
-/* No comment provided by engineer. */
-"contacts on server" = "contacts on server";
-
-/* No comment provided by engineer. */
-"Create Account" = "Create Account";
-
-/* No comment provided by engineer. */
-"Delete Contacts" = "Delete Contacts";
-
-/* No comment provided by engineer. */
-"email" = "email";
-
-/* No comment provided by engineer. */
-"Forgot password ?" = "Forgot password ?";
-
-/* No comment provided by engineer. */
-"Hello ! \nSyncSmartFTS is an easy to use app which can backup your contacts in the cloud and also provides you with the option to transfer/move all of your contacts on different smartphones.\n 1) Create account .\n2) Sign In .\n3) Save your contacts .\n4) Now just sign in from another device and import your contacts.That smart, that simple !! \nTotal count of contacts may be different than the one showed on your phone , depending on what contacts you have selected to be displayed in your contacts app. ! SyncSmartFTS does not take into consideration empty contacts, contact avatars , dates of any kind, addresses , notes and social profile." = " ";
-
-"Import Contacts" = "Import Contacts";
-
-/* No comment provided by engineer. */
-"Install contacts from server ?" = "Install contacts from server ?";
-
-/* No comment provided by engineer. */
-"Internal server error" = "Internal server error";
-
-/* No comment provided by engineer. */
-"LOGIN" = "LOGIN";
-
-/* No comment provided by engineer. */
-"Logout" = "Logout";
-
-/* No comment provided by engineer. */
-"Mail already exists" = "Mail already exists";
-
-/* No comment provided by engineer. */
-"No" = "No";
-
-/* No comment provided by engineer. */
-"No Internet connection" = "No Internet connection";
-
-/* No comment provided by engineer. */
-"password" = "password";
-
-/* No comment provided by engineer. */
-"Please enter your credentials" = "Please enter your credentials";
-
-/* No comment provided by engineer. */
-"Please enter your e-mail address so we can reset your password" = "Please enter your e-mail address so we can reset your password";
-
-/* No comment provided by engineer. */
-"Please insert same password in both fields" = "Please insert same password in both fields";
-
-/* No comment provided by engineer. */
-"Please insert valid email address" = "Please insert valid email address";
-
-/* No comment provided by engineer. */
-"Please use a valid email" = "Please use a valid email";
-
-/* No comment provided by engineer. */
-"REGISTER" = "REGISTER";
-
-/* No comment provided by engineer. */
-"Save contacts to server ? This will overwrite your current backup." = "Save contacts to server ? This will overwrite your current backup.";
-
-/* No comment provided by engineer. */
-"Save To Cloud" = "Save To Cloud";
-
-/* No comment provided by engineer. */
-"Server maintenance downtime" = "Server maintenance downtime";
-
-/* No comment provided by engineer. */
-"Sorry" = "Sorry";
-
-/* No comment provided by engineer. */
-"SyncSmart does not have permissions to use your contacts, check Settings->Privacy" = "SyncSmart does not have permissions to use your contacts, check Settings->Privacy";
-
-/* No comment provided by engineer. */
-"SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts" = "SyncSmart needs your permission to use the contacts before continuing,go to Settings -> Privacy -> Contacts";
-
-/* No comment provided by engineer. */
-"Unable to connect, please verify your credentials" = "Unable to connect, please verify your credentials";
-
-/* No comment provided by engineer. */
-"Upload completed, your contacts have been backed up" = "Upload completed, your contacts have been backed up";
-
-/* No comment provided by engineer. */
-"valid contacts on phone" = "valid contacts on phone";
-
-/* No comment provided by engineer. */
-"We suggest you backup your contacts before proceeding to deletion" = "We suggest you backup your contacts before proceeding to deletion";
-
-/* No comment provided by engineer. */
-"Yes" = "Yes";
-
-"Contacts installed" = " تم وضع جهات الاتصال";
+Created by localio.
+*/
 
 
+"Hello ! \nSyncSmartFTS is an easy to use app which can backup your contacts in the cloud and also provides you with the option to transfer/move all of your contacts on different smartphones.\n 1) Create account .\n2) Sign In .\n3) Save your contacts .\n4) Now just sign in from another device and import your contacts.That smart, that simple !! \nTotal count of contacts may be different than the one showed on your phone , depending on what contacts you have selected to be displayed in your contacts app. ! SyncSmartFTS does not take into consideration empty contacts, contact avatars , dates of any kind, addresses , notes and social profile." = " שלום!\nSyncSmart FTS הינה אפליקציה פשוטה לשימוש שעושה גיבוי לאנשי קשר בשרת וכמו כן, מעניקה לכם את האפשרות לשנות/להעביר את כל אנשי הקשר שלכם לטלפון חכם אחר.1) \nלייצר חשבון.2)\n חיבור.3)\n לשמור את אנשי הקשר.4)\n עכשיו תתחברו למכשיר אחר ותעבירו את אנשי הקשר שלכם. That smart, that simple!\n!סהכ אנשי הקשר שלכם יכול להיות שונה ממה שמראים לכם בטלפון, זה תלוי באנשי קשר שבחרתם כדי להציג באפליקציה אנשי קשר. !SyncSmart FTS אינה מתייחסות לאנשי קשר (קונטקטים) ריקים, לתמונות של אנשי הקשר, פרטים מכל סוג, כתובות, הערות ופרופיל אזרחי.";
+
+"REGISTER" = " רישום";
+
+"LOGIN" = " חיבור";
+
+"Forgot password ?" = " האם שחכת את הסיסמה? ";
+
+"No Internet connection" = " אין חיבור לאינטרנט.";
+
+"SyncSmart does not have permissions to use your contacts,please check Settings -> Privacy -> Contacts" = "  SyncSmart FTS אינה רשאית להשתמש באנשי קשר שלכם, נאלהתייעץ בהגדרות – סודיות – אנשי קשר";
+
+"Sorry" = " אנו מצטערים!";
+
+"SyncSmart needs your permission to use the contacts before continuing, go to Settings -> Privacy -> Contacts" = " SyncSmart FTS צריכה את האישור שלכם, לפני להמשיך נא להפעיל הגדרות – סודיות – אנשי קשר.";
+
+"Please enter your credentials" = " נא לרשום את האותיות.";
+
+"email" = " דואר אלקטרוני";
+
+"password" = " סיסמה";
+"confirm password" = " נא לאשר את הסיסמה";
+"Create Account" = " לייצר חשבון";
+"Logout" = " ניתוק";
+"Delete Contacts" = "מחיקת אנשי קשר";
+"We suggest you backup your contacts before proceeding to deletion" = " אנו מציעים לך לעשות גיבוי לאנשי הקשר, טרם תחילת המחיקה";
+"Back" = " חזרה";
+"Already backed up" = " כבר עשיתם גיבוי";
+"Are you sure you want to delete all your contacts ?" = " האם את(ה) בטוח(ה) שברצונך למחוק את כל אנשי הקשר שלכם?";
+"Import Contacts" = " יבוא אנשי קשר";
+"Save To Cloud" = " לשמור בCloud";
+"Yes" = " כן";
+"No" = " לא";
+"Please use a valid email" = " אינו תקף! נא להשתמש במייל תקף";
+"Oh no ! Please use a valid email" = "אינו תקף! נא להשתמש במייל תקף";
+"Account created" = " חשבון הוקם";
+"valid contacts on phone" = " אנשי קשר תקפים בטלפון";
+"contacts on server" = " אנשי קשר תקפים בשרת";
+"Server maintenance downtime ." = " אין גישה לשרת";
+"Please insert same password in both fields" = " נא לרשום את הסיסמה בשני השדות";
+"Oops ! Unable to connect , please verify your credentials" = " אופס! אינך יכול להתחבר, נא לבדוק את התווים";
+"Contacts installed." = " אנשי קשר שהותקנו";
+"Contacts deleted." = " אנשי קשר שנמחקו";
+"Mail already exists." = " כתובת אימייל שכבר קיימת";
+"Install contacts from server ?" = " האם ברצונך להתקין גיבוי לאנשי הקשר בטלפון?";
+"Save contacts to server ? This will overwrite your current backup." = " לשחזר את הגיבוי לאנשי הקשר? זה יבוא במקום הגיבוי הנוכחי";
+"You have new contacts that are not saved, please consider backing up." = " יש לך אנשי קשר חדשים שטרם נשמרו, נא לשחזר את הגיבוי";
+"Select Language" = " לבחור שפה";
