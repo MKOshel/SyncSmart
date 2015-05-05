@@ -24,7 +24,7 @@
 
 @interface SSignInViewController ()
 {
-    IBOutlet UILabel *titleLabel;
+    IBOutlet UILabel *labelEula;
     IBOutlet UILabel *registerLabel;
     UITextField* forgotField;
     NSNumber *contactsCount;
@@ -99,6 +99,13 @@
     [_textFieldEmail setBackground:[UIImage imageNamed:@"Email_field"]];
     [_textFieldPassword setBackground:[UIImage imageNamed:@"Password_field"]];
 
+    UITapGestureRecognizer* tapFAQ = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(infoButtonPressed:)];
+    UITapGestureRecognizer* tapEULA = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openEULA)];
+    
+    _labelFAQ.userInteractionEnabled = YES;
+    labelEula.userInteractionEnabled = YES;
+    [_labelFAQ addGestureRecognizer:tapFAQ];
+    [labelEula addGestureRecognizer:tapEULA];
 
     for (UIButton *button in _loginView.subviews)
     {
@@ -120,8 +127,8 @@
     registerLabel.layer.cornerRadius = 20.0;
     registerLabel.lineBreakMode = NSLineBreakByWordWrapping;
     registerLabel.numberOfLines = 1;
-    titleLabel.numberOfLines = 2;
-    titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//    titleLabel.numberOfLines = 2;
+//    titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
 
     
     for (UITextField *field in _loginView.subviews)
@@ -283,8 +290,8 @@
 
                      completion:^(BOOL finished)
                      {
-                         [titleLabel setHidden:NO];
-                         [self animateView:titleLabel withTransitionType:kCATransitionFade andSubType:nil];
+//                         [titleLabel setHidden:NO];
+//                         [self animateView:titleLabel withTransitionType:kCATransitionFade andSubType:nil];
                          [registerLabel setHidden:NO];
                          [self animateView:registerLabel withTransitionType:kCATransitionFade andSubType:nil];
 
@@ -330,6 +337,9 @@
     [self addChildViewController:infoVC];
     [infoVC didMoveToParentViewController:self];
 }
+
+
+
 
 -(void)forgotPressed
 {
@@ -445,6 +455,35 @@
                        [appDelegate.serverUpload uploadRecoverString:recoverStr toURL:ACCOUNT_URL];
                    });
     }
+}
+
+
+// social actions
+- (void)openEULA {
+    [self openURL:@"http://syncsmart.ftsapps.com/terms-and-conditions.html"];
+}
+
+- (IBAction)openFacebookPage:(UIButton *)sender {
+    
+    [self openURL:@"https://www.facebook.com/SyncSmartFTS?fref=ts"];
+}
+
+- (IBAction)openTweeterPage:(UIButton *)sender {
+    [self openURL:@"https://twitter.com/search?q=syncsmart&src=typd"];
+}
+
+- (IBAction)openVimeoPage:(UIButton *)sender {
+    [self openURL:@"https://vimeo.com/103842460"];
+}
+
+
+- (IBAction)openYoutubePage:(UIButton *)sender{
+    [self openURL:@"https://www.youtube.com/watch?v=1jwIMV3QwFA"];
+}
+
+-(void)openURL:(NSString*)url
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 

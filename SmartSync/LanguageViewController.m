@@ -28,16 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableView setTableFooterView:[[UIView alloc]initWithFrame:CGRectZero]];
-    //[self.tableView setBackgroundColor:BACK_COLOR];
-    UIImageView* iv = [[UIImageView alloc]initWithFrame:self.tableView.frame];
-    [iv setImage:[UIImage imageNamed:@"640x1136"]];
-    //[self.view insertSubview:iv belowSubview:self.tableView];
     
-    [self.tableView setSeparatorColor:[UIColor clearColor]];
-    [self.tableView setBackgroundView:iv];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self customizeView];
+    //[self.tableView setBackgroundColor:BACK_COLOR];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -47,7 +44,17 @@
 
 -(void)customizeView
 {
+    UIImageView* iv = [[UIImageView alloc]initWithFrame:self.tableView.frame];
+    [iv setImage:[UIImage imageNamed:@"language_background"]];
+    //[self.view insertSubview:iv belowSubview:self.tableView];
     
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
+    [self.tableView setBackgroundView:iv];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +95,7 @@
     cell.textLabel.textColor = [UIColor redColor];
    
     [appDelegate setSelectedLanguage:(int)indexPath.row];
+   
     [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:(int)indexPath.row] forKey:@"language"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    

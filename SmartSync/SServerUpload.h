@@ -19,7 +19,7 @@
 -(void)uploadStringToServer:(NSString*)strToSend urlToSend:(NSString*)strUrl;
 //synchronized method
 -(NSString*)uploadDataToServer:(NSString*)data urlToSend:(NSString*)strUrl;
--(NSString*)uploadToken:(NSString*)data urlToSend:(NSString*)strUrl;
+-(NSString*)uploadPassword:(NSString*)data urlToSend:(NSString*)strUrl;
 -(NSString*)uploadRecoverString:(NSString*)data toURL:(NSString*)strUrl;
 
 @property(nonatomic,strong) NSMutableArray* contactsFromServer;

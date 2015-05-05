@@ -195,6 +195,31 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+// social actions
+- (IBAction)openFacebookPage:(UIButton *)sender {
+    
+    [self openURL:@"https://www.facebook.com/SyncSmartFTS?fref=ts"];
+}
+
+- (IBAction)openTweeterPage:(UIButton *)sender {
+    [self openURL:@"https://twitter.com/search?q=syncsmart&src=typd"];
+}
+
+- (IBAction)openVimeoPage:(UIButton *)sender {
+    [self openURL:@"https://vimeo.com/103842460"];
+}
+
+
+- (IBAction)openYoutubePage:(UIButton *)sender{
+    [self openURL:@"https://www.youtube.com/watch?v=1jwIMV3QwFA"];
+}
+
+-(void)openURL:(NSString*)url
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

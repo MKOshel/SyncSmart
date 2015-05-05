@@ -7,13 +7,13 @@
 //
 
 #import "SSyncViewController.h"
-#import "LanguageViewController.h"
 #import "SSContact.h"
 #import <AddressBook/AddressBook.h>
 #import "SServerUpload.h"
 #import "UIColor+FlatUI.h"
 #import "SSUpdateManager.h"
 #import "SSAppDelegate.h"
+#import "SSChangePasswordVC.h"
 
 
 #define TAG_SEND_CONTACTS 100
@@ -358,11 +358,12 @@
 - (IBAction)logoutPressed:(UIButton *)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"logoutPressed" object:nil];
+    
     CGRect newFrame = _mainView.frame;
-    newFrame.origin.x = _menuView.frame.size.width;
     
     newFrame.origin.x = 0;
     
+    // to bring mainView back to x origin
     if (isShowing == YES) {
         [UIView animateWithDuration:0.2
                               delay:0.0
@@ -378,14 +379,14 @@
          }];
     }
     
-    [appDelegate.syncVC.progressView setHidden:YES];
+    
     [appDelegate.credentials resetCredentials];
     [self animateView:appDelegate.signInVC.view];
     [self.view removeFromSuperview];
 }
 
 - (IBAction)selectLanguage:(UIButton *)sender {
-    LanguageViewController* languageVC = [[LanguageViewController alloc]init];
+    SSLanguageViewController* languageVC = [[SSLanguageViewController alloc]initWithNibName:@"SSLanguageViewController" bundle:nil];
     
     [self presentViewController:languageVC animated:YES completion:nil];
 }
@@ -455,7 +456,6 @@
     if (alertView.tag == TAG_SEND_CONTACTS) {
         if (buttonIndex == 1) {
             [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
-             [_progressView setHidden:NO];
         }
         else [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }
@@ -474,6 +474,7 @@
 }
 
 
+#pragma mark === LOADING SCREEN
 
 -(void)dataIsSyncing
 {
@@ -496,10 +497,44 @@
     [_buttonSend setEnabled:YES];
     [shadowView removeFromSuperview];
 }
-- (IBAction)openEULA:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.syncsmart.ftsapps.com"]];
+#pragma mark
 
+// social
+- (IBAction)openEULA:(UIButton *)sender {
+    [self openURL:@"http://syncsmart.ftsapps.com/terms-and-conditions.html"];
 }
+
+- (IBAction)openFacebookPage:(UIButton *)sender {
+    
+    [self openURL:@"https://www.facebook.com/SyncSmartFTS?fref=ts"];
+}
+
+- (IBAction)openTweeterPage:(UIButton *)sender {
+    [self openURL:@"https://twitter.com/search?q=syncsmart&src=typd"];
+}
+
+- (IBAction)openVimeoPage:(UIButton *)sender {
+    [self openURL:@"https://vimeo.com/103842460"];
+}
+
+
+- (IBAction)openYoutubePage:(UIButton *)sender{
+    [self openURL:@"https://www.youtube.com/watch?v=1jwIMV3QwFA"];
+}
+
+-(void)openURL:(NSString*)url
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+- (IBAction)presentRecoverVC:(UIButton *)sender {
+    SSChangePasswordVC* changeVC = [[SSChangePasswordVC alloc]initWithNibName:@"SSChangePasswordVC" bundle:nil];
+    
+    //[self.view addSubview:changeVC.view];
+    [self presentViewController:changeVC animated:YES completion:nil];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

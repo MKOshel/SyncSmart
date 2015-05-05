@@ -73,7 +73,7 @@
     {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        LanguageViewController* languageVC = [[LanguageViewController alloc]init];
+        SSLanguageViewController* languageVC = [[SSLanguageViewController alloc]initWithNibName:@"SSLanguageViewController" bundle:nil];
         [_signInVC presentViewController:languageVC animated:YES completion:nil];
     }
     

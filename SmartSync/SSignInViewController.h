@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIView *loginView;
 @property (strong, nonatomic) SSRegisterViewController *registerVC;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelFAQ;
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewBack;
 
 @property(readwrite,nonatomic)     BOOL didShowInfo;

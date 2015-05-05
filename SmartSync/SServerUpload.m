@@ -174,7 +174,7 @@
 }
 
 
--(NSString*)uploadToken:(NSString*)data urlToSend:(NSString*)strUrl
+-(NSString*)uploadPassword:(NSString*)data urlToSend:(NSString*)strUrl
 {
     NSURL *cgiUrl = [NSURL URLWithString:strUrl];
     
@@ -199,8 +199,6 @@
     if(error_received != nil)
         return false;
     NSString* strResponse = [[NSString alloc] initWithData:dResponse encoding:NSUTF8StringEncoding];
-    
-
     
     return strResponse;
 }

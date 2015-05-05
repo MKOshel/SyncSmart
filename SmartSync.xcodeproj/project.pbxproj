@@ -128,6 +128,14 @@
 		E24FD7D41ABC773500C55CE6 /* logout12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24FD7D31ABC773500C55CE6 /* logout12@2x.png */; };
 		E24FD7D61ABC7B8900C55CE6 /* fb_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24FD7D51ABC7B8900C55CE6 /* fb_icon@2x.png */; };
 		E24FD7D81ABC7C6600C55CE6 /* tweeter_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24FD7D71ABC7C6600C55CE6 /* tweeter_icon@2x.png */; };
+		E285EC4C1AF6564500485C58 /* account_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E285EC481AF6564500485C58 /* account_background.png */; };
+		E285EC4D1AF6564500485C58 /* language_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E285EC491AF6564500485C58 /* language_background.png */; };
+		E285EC4E1AF6564500485C58 /* vimeo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285EC4A1AF6564500485C58 /* vimeo_icon@2x.png */; };
+		E285EC4F1AF6564500485C58 /* youtube_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285EC4B1AF6564500485C58 /* youtube_icon@2x.png */; };
+		E285EC531AF65D8100485C58 /* SSLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E285EC511AF65D8100485C58 /* SSLanguageViewController.m */; };
+		E285EC541AF65D8100485C58 /* SSLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E285EC521AF65D8100485C58 /* SSLanguageViewController.xib */; };
+		E285EC581AF8205500485C58 /* SSChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E285EC561AF8205500485C58 /* SSChangePasswordVC.m */; };
+		E285EC591AF8205500485C58 /* SSChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E285EC571AF8205500485C58 /* SSChangePasswordVC.xib */; };
 		E2979D001AE6E21800DF3CD1 /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2979CFD1AE6E21800DF3CD1 /* KAProgressLabel.m */; };
 		E2979D011AE6E21800DF3CD1 /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2979CFF1AE6E21800DF3CD1 /* TPPropertyAnimation.m */; };
 		E2979D031AE6F5FD00DF3CD1 /* progressLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2979D021AE6F5FD00DF3CD1 /* progressLogo@2x.png */; };
@@ -388,6 +396,16 @@
 		E24FD7D31ABC773500C55CE6 /* logout12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout12@2x.png"; sourceTree = "<group>"; };
 		E24FD7D51ABC7B8900C55CE6 /* fb_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb_icon@2x.png"; sourceTree = "<group>"; };
 		E24FD7D71ABC7C6600C55CE6 /* tweeter_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweeter_icon@2x.png"; sourceTree = "<group>"; };
+		E285EC481AF6564500485C58 /* account_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account_background.png; sourceTree = "<group>"; };
+		E285EC491AF6564500485C58 /* language_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language_background.png; sourceTree = "<group>"; };
+		E285EC4A1AF6564500485C58 /* vimeo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vimeo_icon@2x.png"; sourceTree = "<group>"; };
+		E285EC4B1AF6564500485C58 /* youtube_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youtube_icon@2x.png"; sourceTree = "<group>"; };
+		E285EC501AF65D8100485C58 /* SSLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSLanguageViewController.h; path = SmartSync/SSLanguageViewController.h; sourceTree = "<group>"; };
+		E285EC511AF65D8100485C58 /* SSLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSLanguageViewController.m; path = SmartSync/SSLanguageViewController.m; sourceTree = "<group>"; };
+		E285EC521AF65D8100485C58 /* SSLanguageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSLanguageViewController.xib; path = SmartSync/SSLanguageViewController.xib; sourceTree = "<group>"; };
+		E285EC551AF8205500485C58 /* SSChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSChangePasswordVC.h; path = SmartSync/SSChangePasswordVC.h; sourceTree = "<group>"; };
+		E285EC561AF8205500485C58 /* SSChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSChangePasswordVC.m; path = SmartSync/SSChangePasswordVC.m; sourceTree = "<group>"; };
+		E285EC571AF8205500485C58 /* SSChangePasswordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSChangePasswordVC.xib; path = SmartSync/SSChangePasswordVC.xib; sourceTree = "<group>"; };
 		E2979CFC1AE6E21800DF3CD1 /* KAProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAProgressLabel.h; sourceTree = "<group>"; };
 		E2979CFD1AE6E21800DF3CD1 /* KAProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAProgressLabel.m; sourceTree = "<group>"; };
 		E2979CFE1AE6E21800DF3CD1 /* TPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPropertyAnimation.h; sourceTree = "<group>"; };
@@ -454,6 +472,10 @@
 		70D189CE194B735700931083 /* ssIcons */ = {
 			isa = PBXGroup;
 			children = (
+				E285EC481AF6564500485C58 /* account_background.png */,
+				E285EC491AF6564500485C58 /* language_background.png */,
+				E285EC4A1AF6564500485C58 /* vimeo_icon@2x.png */,
+				E285EC4B1AF6564500485C58 /* youtube_icon@2x.png */,
 				E24283AA1AB77DB0000850EB /* 640x1136.png */,
 				E2979D021AE6F5FD00DF3CD1 /* progressLogo@2x.png */,
 				E24283B21AB78020000850EB /* main_screen_background@2x.png */,
@@ -734,6 +756,12 @@
 				A059827F18EAF6F300C669F1 /* SSInfoViewController.xib */,
 				A05AE55B1A77E74A00F5CB7F /* LanguageViewController.h */,
 				A05AE55C1A77E74A00F5CB7F /* LanguageViewController.m */,
+				E285EC501AF65D8100485C58 /* SSLanguageViewController.h */,
+				E285EC511AF65D8100485C58 /* SSLanguageViewController.m */,
+				E285EC521AF65D8100485C58 /* SSLanguageViewController.xib */,
+				E285EC551AF8205500485C58 /* SSChangePasswordVC.h */,
+				E285EC561AF8205500485C58 /* SSChangePasswordVC.m */,
+				E285EC571AF8205500485C58 /* SSChangePasswordVC.xib */,
 			);
 			name = interface;
 			path = ..;
@@ -912,17 +940,21 @@
 				C87F61B619E5E38800AF1566 /* spotlight87.png in Resources */,
 				A098F9FF187D7C0A0038C6FE /* Images.xcassets in Resources */,
 				A098FA39187DA2430038C6FE /* SSyncViewController.xib in Resources */,
+				E285EC4D1AF6564500485C58 /* language_background.png in Resources */,
 				E24FD7CF1ABB8FC800C55CE6 /* Email_field@2x.png in Resources */,
 				E24FD7D21ABC763A00C55CE6 /* logout@2x.png in Resources */,
+				E285EC591AF8205500485C58 /* SSChangePasswordVC.xib in Resources */,
 				A098FA34187D87E10038C6FE /* SSRegisterViewController.xib in Resources */,
 				E24FD7D41ABC773500C55CE6 /* logout12@2x.png in Resources */,
 				70062EE818F71E1800F49300 /* logo 120.png in Resources */,
+				E285EC4C1AF6564500485C58 /* account_background.png in Resources */,
 				A0B357141897DE3F00DFEF71 /* neris-thin.ttf in Resources */,
 				70FDFE491920277F00578C56 /* 120x120.png in Resources */,
 				70D189D4194B735700931083 /* icon57.png in Resources */,
 				A0BA8E2618EED5D90030F272 /* mailBox@2x.png in Resources */,
 				E24283B51AB78BD7000850EB /* burger_icon@2x.png in Resources */,
 				E24FD7D01ABB8FC800C55CE6 /* Password_field@2x.png in Resources */,
+				E285EC4F1AF6564500485C58 /* youtube_icon@2x.png in Resources */,
 				A0BA8E2718EED5D90030F272 /* upload2-128@2x.png in Resources */,
 				438E9D9B19E56B410042366A /* 180x180.png in Resources */,
 				A0BA8E2218EED5D90030F272 /* Default-568h@2x.png in Resources */,
@@ -931,7 +963,9 @@
 				A0BA8E2418EED5D90030F272 /* download2-128@2x.png in Resources */,
 				70062EE718F71E1800F49300 /* logo 114.png in Resources */,
 				70D189D8194B735700931083 /* spotlight80.png in Resources */,
+				E285EC541AF65D8100485C58 /* SSLanguageViewController.xib in Resources */,
 				A0B357161897DE4600DFEF71 /* neris-light.ttf in Resources */,
+				E285EC4E1AF6564500485C58 /* vimeo_icon@2x.png in Resources */,
 				E24283B31AB78020000850EB /* main_screen_background@2x.png in Resources */,
 				70D189D7194B735700931083 /* spotlight58.png in Resources */,
 				70D189CD194A4C0100931083 /* Dense-Regular.otf in Resources */,
@@ -1008,9 +1042,11 @@
 				A098FA3C187DB7040038C6FE /* SServerRequest.m in Sources */,
 				A016056718AD21380016B759 /* SSCredentials.m in Sources */,
 				A021A45B18A9174A00B4726A /* UIColor+FlatUI.m in Sources */,
+				E285EC581AF8205500485C58 /* SSChangePasswordVC.m in Sources */,
 				A0BF49AF18804ACB00D7E5EE /* SBJsonParser.m in Sources */,
 				A0BF49B218804ACB00D7E5EE /* SBJsonStreamParserAdapter.m in Sources */,
 				A095777F18D071FA00C00AD0 /* SSLoadingParams.m in Sources */,
+				E285EC531AF65D8100485C58 /* SSLanguageViewController.m in Sources */,
 				E2979D011AE6E21800DF3CD1 /* TPPropertyAnimation.m in Sources */,
 				A021A46518A9174A00B4726A /* UIToolbar+FlatUI.m in Sources */,
 				A021A46118A9174A00B4726A /* UISlider+FlatUI.m in Sources */,
@@ -1149,14 +1185,14 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67fd733a-e461-407e-b45a-aa32fd3f7959";
+				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1269,14 +1305,14 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67fd733a-e461-407e-b45a-aa32fd3f7959";
+				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1289,14 +1325,14 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ultra Marinescu (7PCYS2Y8A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67fd733a-e461-407e-b45a-aa32fd3f7959";
+				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
