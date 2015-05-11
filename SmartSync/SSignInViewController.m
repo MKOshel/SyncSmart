@@ -210,6 +210,7 @@
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     
     [userDefaults setValue:appDelegate.credentials.email forKey:@"email"];
+    [userDefaults setValue:appDelegate.credentials.password     forKey:@"password"];
     [userDefaults synchronize];
     
 }

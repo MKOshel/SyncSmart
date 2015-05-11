@@ -180,7 +180,7 @@
     
 	NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:cgiUrl];
     
-	[postRequest setHTTPMethod:@"POST"];
+	[postRequest setHTTPMethod:@"PUT"];
     
 	[postRequest addValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
 	
@@ -199,6 +199,7 @@
     if(error_received != nil)
         return false;
     NSString* strResponse = [[NSString alloc] initWithData:dResponse encoding:NSUTF8StringEncoding];
+    NSLog(@"NEW PASSWORD RESPONSE $$$ %@",strResponse);
     
     return strResponse;
 }
@@ -313,6 +314,8 @@
     
 }
 
+
+// puteam alege pt metoda de request la server sa mai introducem un parametru pentru tipul de HTTP request, de aceea am folosit toate aceste metode separate
 -(NSString*)uploadRecoverString:(NSString*)data toURL:(NSString*)strUrl
 {
     NSURL *cgiUrl = [NSURL URLWithString:strUrl];

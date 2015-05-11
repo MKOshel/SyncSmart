@@ -32,6 +32,7 @@
 //#define LOGIN_TOKEN_URL @"http://192.168.0.103:3000/auth/login"
 
 #define ACCOUNT_URL @"https://celsius-ftsapps.rhcloud.com/auth/account"
+#define ACCOUNT_CHANGE_URL @"https://celsius-ftsapps.rhcloud.com/auth/account?apikey="
 
 #define UP_CONTACTS_URL @"https://celsius-ftsapps.rhcloud.com/api/v1/contact?apikey="
 

@@ -173,7 +173,8 @@
     {
         if (![_repeatTextField.text isEqualToString:_passwordTextField.text])
         {
-            [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Please insert same password in both fields",nil) andTitle:nil];
+            NSString* alertText = [appDelegate languageSelectedStringForKey:@"Please insert same password in both fields"];
+            [SSAppDelegate showAlertWithMessage:NSLocalizedString(alertText,nil) andTitle:nil];
         }
     }
 }

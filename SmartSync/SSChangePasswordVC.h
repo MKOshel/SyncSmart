@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSChangePasswordVC : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *labelPassword;
-@property (strong, nonatomic) IBOutlet UITextField *labelConfirmPassword;
+@interface SSChangePasswordVC : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *fieldOldPassword;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *repeatTextField;
+@property (strong, nonatomic) IBOutlet UITextField *nwPasswordField;
+@property (strong, nonatomic) IBOutlet UIButton *accountButton;
+
 @end
