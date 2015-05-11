@@ -175,7 +175,10 @@
     
     NSString *firstName = (NSString *)ABRecordCopyValue(personRef, kABPersonFirstNameProperty);
     NSString *lastName = (NSString*)ABRecordCopyValue(personRef, kABPersonLastNameProperty);
+    NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(personRef, kABPersonImageFormatThumbnail);
     
+    
+    person.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     person.firstName  = firstName;
     person.lastName = lastName;
     
@@ -252,6 +255,10 @@
     
     NSString *firstName = (NSString *)ABRecordCopyValue(ref, kABPersonFirstNameProperty);
     NSString *lastName = (NSString*)ABRecordCopyValue(ref, kABPersonLastNameProperty);
+    NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatThumbnail);
+    
+    
+    ssContact.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
     ssContact.firstName  = firstName;
     ssContact.lastName = lastName;
@@ -324,6 +331,7 @@
         [dict setValue:contact.email forKey:@"email"];
     
         [dict setValue:[self getSerializedNumbersForContact:contact] forKey:@"phone"];
+        [dict setValue:contact.photo forKey:@"photo"];
    
     return dict;
     [dict release];
@@ -459,6 +467,14 @@
         ABMutableMultiValueRef multiRef = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         ABMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         
+        if (contact.photo !=nil) {
+            NSData* imgData = [[NSData alloc]initWithBase64Encoding:contact.photo];
+            CFDataRef cfdata = CFDataCreate(NULL, [imgData bytes], [imgData length]);
+            
+            ABPersonSetImageData(newPerson, cfdata, &error);
+            
+        }
+        
         if ([contact.phone objectForKey:@"home"] != nil ) {
 //            ABMultiValueAddValueAndLabel(multiRef,([contact.phone objectForKey:@"home"]), kABHomeLabel, NULL);
             NSArray* arr = [contact.phone objectForKey:@"home"];
@@ -523,7 +539,6 @@
                                                     delay:0.0];
         });
         CFRelease(newPerson);
-        //CFRelease(addressBook);
         if (error != NULL)
         {
             CFStringRef errorDesc = CFErrorCopyDescription(error);

@@ -15,6 +15,7 @@
 @property(nonatomic,retain) NSString *firstName;
 @property(nonatomic,retain) NSString *lastName;
 @property(nonatomic,retain) NSString *email;
+@property(nonatomic,retain) NSString* photo;
 @property(nonatomic,retain) NSMutableArray *numbers;
 @property(nonatomic,retain) NSMutableDictionary *phone;
 

@@ -103,6 +103,7 @@
         
             NSDictionary* d = [arrAll objectAtIndex:i];
             
+            NSString* photo = [d objectForKey:@"photo"];
             NSString* firstName = [d objectForKey:@"first"];
             NSString* lastName = [d objectForKey:@"last"];
             NSString* email = [d objectForKey:@"email"];
@@ -114,6 +115,7 @@
             contact.lastName = lastName;
             contact.phone = phoneNumbers;
             contact.email = email;
+            contact.photo = photo;
             
             [serverUpload.contactsFromServer addObject:contact];
 
