@@ -99,7 +99,10 @@
         for(int i = 0 ; i < [arrAll count] ; i++)
         {
 
-//                [appDelegate.syncVC.progressView setProgress:(float)(i/[arrAll count]) animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                     [self updateProgressViewWithProgress:i/[arrAll count]];
+            });
+       
         
             NSDictionary* d = [arrAll objectAtIndex:i];
             

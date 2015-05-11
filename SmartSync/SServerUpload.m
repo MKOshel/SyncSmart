@@ -162,7 +162,7 @@
         dispatch_async(dispatch_get_main_queue(),
                        ^{
                            [[NSUserDefaults standardUserDefaults] setValue:_apiKey forKey:@"apikey"];
-                           [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:_contactsNo] forKey:@"len"];
+                           [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%i",_contactsNo] forKey:@"len"];
                            [[NSUserDefaults standardUserDefaults] synchronize];
                            
                            [appDelegate.signInVC requestPermissions];

@@ -95,7 +95,11 @@
 {
     //self.view.backgroundColor = superBlue;
     //self.view.backgroundColor = [UIColor colorWithRed:21/255.0f green:22/255.0f blue:27/255.0f alpha:1];
-
+    UIColor* whiteColor = [UIColor whiteColor];
+    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
     [_textFieldEmail setBackground:[UIImage imageNamed:@"Email_field"]];
     [_textFieldPassword setBackground:[UIImage imageNamed:@"Password_field"]];
 
@@ -135,8 +139,8 @@
     {
         if ([field isKindOfClass:[UITextField class]])
         {
-            //field.layer.borderWidth = 1.0;
-            //field.layer.borderColor = [UIColor whiteColor].CGColor;
+            field.layer.borderWidth = 1.0;
+            field.layer.borderColor = [UIColor whiteColor].CGColor;
             field.backgroundColor = [UIColor clearColor];
             field.textColor = [UIColor whiteColor];
             field.layer.cornerRadius = 20.0;
@@ -151,8 +155,8 @@
     _sigInButton.titleLabel.text = NSLocalizedString(@"LOGIN", nil);
     registerLabel.text = NSLocalizedString(@"REGISTER", nil);
     _labelForgot.text = NSLocalizedString(@"Forgot password ?", nil);
-//    _textFieldEmail.placeholder = NSLocalizedString(@"email", nil);
-//    _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
+    _textFieldEmail.placeholder = NSLocalizedString(@"email", nil);
+    _textFieldPassword.placeholder = NSLocalizedString(@"password", nil);
 }
 
 -(void)translate
@@ -327,16 +331,19 @@
 
     SSInfoViewController* infoVC = [[SSInfoViewController alloc]initWithNibName:@"SSInfoViewController" bundle:nil];
     
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.5;
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    [self presentViewController:infoVC animated:YES completion:nil];
     
-    [infoVC.view.layer addAnimation:transition forKey:@"0shel"];
-    [self.view addSubview:infoVC.view];
-    [self addChildViewController:infoVC];
-    [infoVC didMoveToParentViewController:self];
+    
+//    CATransition *transition = [CATransition animation];
+//    transition.duration = 0.5;
+//    transition.type = kCATransitionPush;
+//    transition.subtype = kCATransitionFromTop;
+//    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+//    
+//    [infoVC.view.layer addAnimation:transition forKey:@"0shel"];
+//    [self.view addSubview:infoVC.view];
+//    [self addChildViewController:infoVC];
+//    [infoVC didMoveToParentViewController:self];
 }
 
 

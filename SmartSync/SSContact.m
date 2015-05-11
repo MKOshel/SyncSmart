@@ -177,8 +177,8 @@
     NSString *lastName = (NSString*)ABRecordCopyValue(personRef, kABPersonLastNameProperty);
     NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(personRef, kABPersonImageFormatThumbnail);
     
-    
-    person.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    person.photo = [imgData base64EncodedStringWithOptions:kNilOptions];
+  //  person.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     person.firstName  = firstName;
     person.lastName = lastName;
     
@@ -258,8 +258,8 @@
     NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatThumbnail);
     
     
-    ssContact.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    
+  //  ssContact.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    ssContact.photo = [imgData base64EncodedStringWithOptions:kNilOptions];
     ssContact.firstName  = firstName;
     ssContact.lastName = lastName;
     
@@ -453,6 +453,13 @@
     
     for (SSContact* contact in appDelegate.serverUpload.contactsFromServer)
     {
+        dispatch_async(dispatch_get_main_queue(),^{
+            // [appDelegate.syncVC.progressView setProgress:(double)i/count];
+            [appDelegate.syncVC.progressLabel setProgress:(float)i/count
+                                                   timing:TPPropertyAnimationTimingEaseOut
+                                                 duration:1.0
+                                                    delay:0.0];
+        });
         i++;
        
         ABRecordRef newPerson = ABPersonCreate();
@@ -531,13 +538,6 @@
         // For other properties
         //
         ABAddressBookAddRecord([SSContact getBook], newPerson, &error);
-        dispatch_async(dispatch_get_main_queue(),^{
-           // [appDelegate.syncVC.progressView setProgress:(double)i/count];
-            [appDelegate.syncVC.progressLabel setProgress:(float)i/count
-                                                   timing:TPPropertyAnimationTimingEaseOut
-                                                 duration:1.0
-                                                    delay:0.0];
-        });
         CFRelease(newPerson);
         if (error != NULL)
         {

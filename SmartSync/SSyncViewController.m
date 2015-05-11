@@ -146,9 +146,9 @@
 -(void)setCountText
 {
     _contactsCountLabel.text = [NSString stringWithFormat:@"%d",[contact contactsCount]];
-    [_serverCountLabel setText:[NSString stringWithFormat:@"%i",appDelegate.serverUpload.contactsNo]];
-    NSNumber* serverCount = [[NSUserDefaults standardUserDefaults] valueForKey:@"len"];
-    [_serverCountLabel setText:serverCount.stringValue];
+//    [_serverCountLabel setText:[NSString stringWithFormat:@"%i",appDelegate.serverUpload.contactsNo]];
+    NSString* serverCount = [[NSUserDefaults standardUserDefaults] valueForKey:@"len"];
+    [_serverCountLabel setText:serverCount];
 }
 
 
@@ -430,14 +430,19 @@
             totalCount = [contact contactsCount];
             NSString *tc = [NSString stringWithFormat:@"%i",totalCount];
             _contactsCountLabel.text = tc;
+            [_progressLabel setProgress:0];
+
             [self dataSyncingFinished];
         }
     }
     //contacts backed up
     if (alertView.tag == 4) {
         if (buttonIndex == 0) {
-            [_serverCountLabel setText:[NSString stringWithFormat:@"%i",[contact contactsCount]]];
+            NSString* totalCountOfContacts = [NSString stringWithFormat:@"%i",[contact contactsCount]];
+
+            [_serverCountLabel setText:totalCountOfContacts];
             [self dataSyncingFinished];
+            [self userDefaultsSetValue:totalCountOfContacts forKey:@"len"];
         }
     }
     // Deletion question
@@ -480,7 +485,6 @@
     shadowView = [[UIView alloc]initWithFrame:self.view.frame];
     shadowView.alpha = 0.5;
     shadowView.backgroundColor = [UIColor blackColor];
-    
     [self.view addSubview:shadowView];
     [_buttonDelete setEnabled:NO];
     [_buttonInstall setEnabled:NO];
@@ -495,6 +499,7 @@
     [_buttonInstall setEnabled:YES];
     [_buttonSend setEnabled:YES];
     [shadowView removeFromSuperview];
+
 }
 #pragma mark
 
@@ -534,6 +539,13 @@
     
 }
 
+
+
+-(void)userDefaultsSetValue:(NSString*)value forKey:(NSString*)key
+{
+    [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)didReceiveMemoryWarning
 {

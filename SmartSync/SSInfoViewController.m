@@ -70,9 +70,9 @@
 //
 //     }];
     
-
-    [self.view removeFromSuperview];
-    [self didMoveToParentViewController:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.view removeFromSuperview];
+//    [self didMoveToParentViewController:nil];
 
 }
 
