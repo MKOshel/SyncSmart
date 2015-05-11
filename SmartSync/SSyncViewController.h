@@ -13,6 +13,8 @@
 
 @interface SSyncViewController : UIViewController<UIAlertViewDelegate,UIApplicationDelegate>
 
+@property (strong, nonatomic) IBOutlet UIImageView *ivSave;
+@property (strong, nonatomic) IBOutlet UIImageView *ivInstall;
 @property (strong, nonatomic) IBOutlet UILabel *contactsCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *serverCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *labelAccount;

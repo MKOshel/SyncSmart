@@ -100,14 +100,14 @@
 {
     //self.view.backgroundColor = BACK_COLOR;
 
-//    UIColor* whiteColor = [UIColor whiteColor];
-//    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
-//                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
-//    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
-//                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
-//    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
-//                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
-//                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    UIColor* whiteColor = [UIColor whiteColor];
+    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+                                                                           attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+                                                                              attributes:@{NSForegroundColorAttributeName: whiteColor}];
+    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
+                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
+                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
     
     [_emailTextField setBackground:[UIImage imageNamed:@"Email_field"]];
     [_passwordTextField setBackground:[UIImage imageNamed:@"Password_field"]];
@@ -157,6 +157,12 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.attributedPlaceholder = nil;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField

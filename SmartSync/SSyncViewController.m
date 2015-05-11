@@ -198,18 +198,13 @@
         {
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-//            button.buttonColor = BACK_COLOR;
-           // button.layer.borderWidth = 1.5;
-           // button.layer.cornerRadius = 55.0;
             button.layer.borderColor = [UIColor peterRiverColor].CGColor;
             [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0]];
-           // button.layer.masksToBounds = YES;
-            
+
         }
     }
     
-    //[_contactsCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
-   // [_serverCountLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:21.0]];
+
     _labelAccount.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:13.0];
     _buttonSend.titleLabel.numberOfLines = 3;
     _buttonSend.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -231,6 +226,10 @@
     
     [_buttonInstall setTitleEdgeInsets:UIEdgeInsetsMake(4.0f, 4.0f, 0.0f, 0.0f)];
         [_buttonSend setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 2.0f, 0.0f, 0.0f)];
+    
+    [_ivSave addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(sendContacts:)]];
+    
+    [_ivInstall addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(downloadAndInstall:)]];
 
 }
 
