@@ -15,6 +15,7 @@
 @interface SServerUpload ()
 {
     NSURLConnection *post;
+    NSHTTPURLResponse *httpResponse;
 }
 @end
 
@@ -30,9 +31,8 @@
     return self;
 }
 
-
-
--(NSString*)uploadStringToServer:(NSString *)stringToSend toURL:(NSString *)strUrl
+/*method for contacts upload ONLY*/
+-(void)uploadContactsToServer:(NSString *)stringToSend toURL:(NSString *)strUrl
 {
 	NSURL *cgiUrl = [NSURL URLWithString:strUrl];
     
@@ -41,6 +41,7 @@
 	[postRequest setHTTPMethod:@"POST"];
 
 	[postRequest addValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
+    [postRequest addValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"] forHTTPHeaderField:@"X-Access-Token"];
 	
 	NSMutableData *postBody = [NSMutableData data];
     NSData* dataToSend = [stringToSend dataUsingEncoding:NSUTF8StringEncoding];
@@ -49,8 +50,6 @@
 	
 	[postRequest setHTTPBody:postBody];
 	
-//	NSHTTPURLResponse *response = NULL;
-//	NSError* error_received = NULL;
     NSString* __block strResponse = nil;
     
     NSOperationQueue* queue = [[NSOperationQueue alloc]init];
@@ -58,57 +57,37 @@
     [NSURLConnection sendAsynchronousRequest:postRequest queue:queue completionHandler:^(NSURLResponse* response, NSData* receivedData, NSError* error)
     {
         if (error) {
-            NSLog(@"LOGIN FAILED %@",error.description);
+            NSLog(@"UPLOAD FAILED %@",error.description);
+            NSString* title = [appDelegate languageSelectedStringForKey:@"Sorry"];
+            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(title,nil) message:NSLocalizedString(@"Internal server error",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            alert.tag = 6;
+            
+            [alert show];
+        } else {
+            
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            
+            strResponse = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+            
+            if (httpResponse.statusCode == 200) {
+                NSString* message = [appDelegate languageSelectedStringForKey:@"Upload completed, your contacts have been backed up"];
+                [NSThread detachNewThreadWithBlock:^{
+                    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    alertView.tag = 4;
+                    
+                    [alertView show];
+                }];
+
+            }
+            
+//            [self performSelector:@selector(hideProgress) withObject:nil afterDelay:0.1];
+            
         }
-       strResponse = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-        
-        NSMutableDictionary* dict = [strResponse JSONValue];
-        
-        _apiKey = [dict objectForKey:@"apikey"];
-        _contactsNo = [[dict objectForKey:@"len"] intValue];
-        appDelegate.syncVC.serverCountLabel.text = [NSString stringWithFormat:@"%i",_contactsNo];
-        
-        NSLog(@"STRING RESPONSE IS : %@",strResponse);
-        
-        if ([strResponse rangeOfString:@"apikey"].location == NSNotFound || strResponse == nil)
-        {
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               NSString* message = [appDelegate languageSelectedStringForKey:@"Unable to connect, please verify your credentials"];
-                               [SSAppDelegate showAlertWithMessage:message andTitle:nil];
-                               [[appDelegate.signInVC getIndicator] stopAnimating];
-                               [[appDelegate.signInVC getIndicator] setHidden:YES];
-                           });
-        }
-        
-        else
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               [appDelegate.signInVC requestPermissions];
-                               [[appDelegate.signInVC getIndicator] stopAnimating];
-                               [[appDelegate.signInVC getIndicator] setHidden:YES];
-                           });
     }];
-    return strResponse;
-    
-//	NSData* dResponse = [NSURLConnection sendSynchronousRequest:postRequest returningResponse:&response error:&error_received];
-//   if(error_received != nil)
-//        return false;
-//	NSString* strResponse = [[NSString alloc] initWithData:dResponse encoding:NSUTF8StringEncoding];
-//
-//    if ([strResponse hasPrefix:@"{\"apikey"] )
-//    {
-//        NSMutableDictionary *dict = [strResponse JSONValue];
-//        _apiKey = [dict objectForKey:@"apikey"];
-//
-//        NSLog(@"$$$$$ API KEY IS : %@",_apiKey);
-//    }
-//    return strResponse;
-    
 }
 
 
-
+/*this method is used for login*/
 -(NSString*)uploadDataToServer:(NSString*)data urlToSend:(NSString*)strUrl
 {
     NSURL *cgiUrl = [NSURL URLWithString:strUrl];
@@ -137,14 +116,14 @@
     
     NSMutableDictionary* dict = [strResponse JSONValue];
     
-    _apiKey = [dict objectForKey:@"apikey"];
+    _apiKey = [dict objectForKey:@"token"];
     _contactsNo = [[dict objectForKey:@"len"] intValue];
     
-    appDelegate.syncVC.serverCountLabel.text = [NSString stringWithFormat:@"%i",_contactsNo];
+//    appDelegate.syncVC.serverCountLabel.text = [NSString stringWithFormat:@"%i",_contactsNo];
     
     NSLog(@"STRING RESPONSE IS : %@",strResponse);
     
-    if ([strResponse rangeOfString:@"apikey"].location == NSNotFound || strResponse == nil)
+    if ([strResponse rangeOfString:@"token"].location == NSNotFound || strResponse == nil)
     {
         dispatch_async(dispatch_get_main_queue(),
                        ^{
@@ -204,7 +183,7 @@
     return strResponse;
 }
 
-/*below method is used only for creating account and contacts uploading */
+/*below method is used only for creating account  */
 -(void)uploadStringToServer:(NSString*)strToSend urlToSend:(NSString*)strUrl
 {
     NSURL *cgiUrl = [NSURL URLWithString:strUrl];
@@ -234,6 +213,7 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    httpResponse = (NSHTTPURLResponse*)response;
     [_receivedData setLength:0];
 }
 
@@ -247,41 +227,19 @@
 {
     NSString *response = [[NSString alloc]initWithData:_receivedData encoding:NSUTF8StringEncoding];
 //    _strResponse = [[NSString alloc]initWithData:_receivedData encoding:NSUTF8StringEncoding];
-    NSArray* responseArr = [response JSONValue];
+    int statusCode = (int)httpResponse.statusCode;
     
-    NSLog(@"JSON arr COUNT%lu",(unsigned long)responseArr.count);
-    
-    if (responseArr.count == 1) {
+    if (statusCode == 200) {
         NSString* message = [appDelegate languageSelectedStringForKey:@"Account created"];
         UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.signInVC.registerVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [av show];
     }
-    else if (responseArr.count == 3)
-    {
-        NSString* message = [appDelegate languageSelectedStringForKey:@"Please insert valid email address"];
-
-        UIAlertView* av = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [av show];
-    }
-    
-    else if ([response isEqualToString:@"200"]) {
-        NSString* message = [appDelegate languageSelectedStringForKey:@"Upload completed, your contacts have been backed up"];
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        alertView.tag = 4;
-        
-        [alertView show];
-    }
-    else if ([response isEqualToString:@"500"])
+    else if (statusCode == 500 && [response containsString:@"User exists"])
     {
         NSString* message = [appDelegate languageSelectedStringForKey:@"Mail already exists"];
         [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:@"Oops"];
     }
-    
-    else if ([response hasPrefix:@"<!DOCTYPE"])
-    {
-        [SSAppDelegate showAlertWithMessage:NSLocalizedString(@"Server maintenance downtime",nil) andTitle:@"Oops!"];
-    }
-    else if ([response isEqualToString:@"Internal Server Error"])
+    else
     {
         NSString* title = [appDelegate languageSelectedStringForKey:@"Sorry"];
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(title,nil) message:NSLocalizedString(@"Internal server error",nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -315,7 +273,7 @@
 }
 
 
-// puteam alege pt metoda de request la server sa mai introducem un parametru pentru tipul de HTTP request, de aceea am folosit toate aceste metode separate
+
 -(NSString*)uploadRecoverString:(NSString*)data toURL:(NSString*)strUrl
 {
     NSURL *cgiUrl = [NSURL URLWithString:strUrl];

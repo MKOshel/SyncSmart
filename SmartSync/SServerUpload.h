@@ -15,9 +15,10 @@
 @property(nonatomic,strong) NSString* apiKey;
 @property(nonatomic,readwrite) int contactsNo;
 
--(NSString*)uploadStringToServer:(NSString *)stringToSend toURL:(NSString *)strUrl;
+-(void)uploadContactsToServer:(NSString *)stringToSend toURL:(NSString *)strUrl;
 -(void)uploadStringToServer:(NSString*)strToSend urlToSend:(NSString*)strUrl;
-//synchronized method
+
+
 -(NSString*)uploadDataToServer:(NSString*)data urlToSend:(NSString*)strUrl;
 -(NSString*)uploadPassword:(NSString*)data urlToSend:(NSString*)strUrl;
 -(NSString*)uploadRecoverString:(NSString*)data toURL:(NSString*)strUrl;

@@ -359,14 +359,11 @@
         NSMutableDictionary* dict = [self serializeContact:contact];
         [jSonArray addObject:dict];
     }
-    NSMutableDictionary *jsonDict = [[NSMutableDictionary alloc]init];
-    [jsonDict setValue:jSonArray forKey:@"data"];
     
-    NSLog(@"CONTACTS ARE : %@",[jsonDict JSONRepresentation]);
+    NSLog(@"CONTACTS ARE : %@",[jSonArray JSONRepresentation]);
   
-    return [jsonDict JSONRepresentation];
+    return [jSonArray JSONRepresentation];
     [jSonArray release];
-    [jsonDict release];
 }
 
 // valid contacts count , showed in syncVC

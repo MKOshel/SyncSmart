@@ -174,13 +174,10 @@
 
 -(void)install
 {
-    //_progressView.hidden = NO;
     _progressLabel.hidden = NO;
-   // SServerUpload *up = appDelegate.serverUpload;
     _updateManager = [[SSUpdateManager alloc] init];
 
-    NSString* apikey = [[NSUserDefaults standardUserDefaults] valueForKey:@"apikey"];
-    [_updateManager getDataFromURL:[DOWN_CONTACTS_URL stringByAppendingString:apikey]];
+    [_updateManager getDataFromURL:CONTACTS_URL];
     
     [self dataIsSyncing];
 }
@@ -189,9 +186,7 @@
 -(void)customizeView
 {
     [self customizeProgressLabel];
-     
-    //_mainView.backgroundColor = BACK_COLOR;
-    
+         
     for (UIButton *button in _mainView.subviews)
     {
         if ([button isKindOfClass:[UIButton class]])
@@ -332,9 +327,8 @@
     NSString *strForUpload = [contact getStringOfContacts];
     
     SServerUpload *up = appDelegate.serverUpload;
-    NSString* apikey = [[NSUserDefaults standardUserDefaults] valueForKey:@"apikey"];
 
-    [up uploadStringToServer:strForUpload urlToSend:[UP_CONTACTS_URL stringByAppendingString:apikey]];
+    [up uploadContactsToServer:strForUpload toURL:CONTACTS_URL];
 
     [self dataIsSyncing];
 }

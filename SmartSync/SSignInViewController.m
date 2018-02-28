@@ -96,9 +96,9 @@
     //self.view.backgroundColor = superBlue;
     //self.view.backgroundColor = [UIColor colorWithRed:21/255.0f green:22/255.0f blue:27/255.0f alpha:1];
     UIColor* whiteColor = [UIColor whiteColor];
-    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"email"]
                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"password"]
                                                                               attributes:@{NSForegroundColorAttributeName: whiteColor}];
     [_textFieldEmail setBackground:[UIImage imageNamed:@"Email_field"]];
     [_textFieldPassword setBackground:[UIImage imageNamed:@"Password_field"]];
@@ -164,7 +164,10 @@
     [registerLabel setText:[appDelegate languageSelectedStringForKey:@"REGISTER"]];
     [_labelForgot setText:[appDelegate languageSelectedStringForKey:@"Forgot password ?"]];
     [_sigInButton setTitle:[appDelegate languageSelectedStringForKey:@"LOGIN"] forState:UIControlStateNormal];
-    [_textFieldEmail setPlaceholder:[appDelegate languageSelectedStringForKey:_textFieldEmail.placeholder]];
+    _textFieldEmail.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"email"]
+                                                                           attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    _textFieldPassword.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"password"]
+                                                                              attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     
 }
@@ -333,17 +336,6 @@
     
     [self presentViewController:infoVC animated:YES completion:nil];
     
-    
-//    CATransition *transition = [CATransition animation];
-//    transition.duration = 0.5;
-//    transition.type = kCATransitionPush;
-//    transition.subtype = kCATransitionFromTop;
-//    [transition setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-//    
-//    [infoVC.view.layer addAnimation:transition forKey:@"0shel"];
-//    [self.view addSubview:infoVC.view];
-//    [self addChildViewController:infoVC];
-//    [infoVC didMoveToParentViewController:self];
 }
 
 

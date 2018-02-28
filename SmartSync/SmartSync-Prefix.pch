@@ -23,24 +23,17 @@
 #define DELETED 2
 #define SENT 3
 
-#define MAIN_URL @"http://192.168.2.109:5000/contacts"
+#define MAIN_URL           @"https://api.syncsmartam.uk"
 
-#define LOGIN_URL @"https://celsius-ftsapps.rhcloud.com/auth/login"
+#define LOGIN_URL          @"https://api.syncsmartam.uk/auth/token"
 
-#define TOKEN_URL @"https://celsius-ftsapps.rhcloud.com/service/notify?apikey="
 
-//#define LOGIN_TOKEN_URL @"http://192.168.0.103:3000/auth/login"
+#define ACCOUNT_URL        @"https://api.syncsmartam.uk/users"
+#define ACCOUNT_CHANGE_URL @"https://api.syncsmartam.uk/auth/account"
 
-#define ACCOUNT_URL @"https://celsius-ftsapps.rhcloud.com/auth/account"
-#define ACCOUNT_CHANGE_URL @"https://celsius-ftsapps.rhcloud.com/auth/account?apikey="
+#define CONTACTS_URL @"https://api.syncsmartam.uk/contacts"
 
-#define UP_CONTACTS_URL @"https://celsius-ftsapps.rhcloud.com/api/v1/contact?apikey="
 
-#define UP_PHOTOS_URL @""
-
-#define DOWN_CONTACTS_URL @"https://celsius-ftsapps.rhcloud.com/api/v1/contact?apikey="
-
-#define DOWN_PHOTOS_URL @""
 
 
 #define appDelegate ((SSAppDelegate*)[[UIApplication sharedApplication] delegate])

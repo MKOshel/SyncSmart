@@ -26,7 +26,10 @@
 {
     [self cancelRequest];
     
-    NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:requestUrl]                         cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:100.0];
+    NSMutableURLRequest *request= [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestUrl]];
+    [request addValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"apikey"] forHTTPHeaderField:@"X-Access-Token"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
 
 	self.connection=[[NSURLConnection alloc] initWithRequest:request
                delegate:self];
@@ -35,7 +38,7 @@
 	}
     else
     {
-		// inform the user that the download could not be made
+        NSLog(@"DOWNLOAD ERROR $$$$$$$$$$$$");
 	}
 }
 
@@ -50,7 +53,7 @@
 {
 
 	NSString * str = [NSString stringWithFormat:@"Succeeded! Received %lu bytes of data",(unsigned long)[_receivedData length]];
-    NSLog(str);
+    NSLog(@"%@", str);
     
     if(self.delegate != nil)
         if([self.delegate respondsToSelector:@selector(allDataWasReceived:)])

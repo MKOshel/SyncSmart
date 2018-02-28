@@ -53,6 +53,8 @@
 {
     _titleLabel.text = [appDelegate languageSelectedStringForKey:@"Please enter your credentials"];
     [_accountButton setTitle:[appDelegate languageSelectedStringForKey:@"Create Account"] forState:UIControlStateNormal];
+    [_emailTextField setPlaceholder:[appDelegate languageSelectedStringForKey:_emailTextField.placeholder]];
+    [_passwordTextField setPlaceholder:[appDelegate languageSelectedStringForKey:_passwordTextField.placeholder]];
 //    _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
 //                                              [appDelegate  languageSelectedStringForKey:@"confirm password"]
 //                                                                            attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -67,23 +69,32 @@
      [_activity stopAnimating];
      return;
 }
-    
-    [GPGuardPost validateAddress:_emailTextField.text
-                         success:^(BOOL validity, NSString* suggestion) {
-                             if (validity)
-                             {
-                                 [self createAccount];
-                                 [_activity stopAnimating];
-                             }
-                             else {
-                                 NSString* message = [appDelegate languageSelectedStringForKey:@"Please use a valid email"];
-                                 [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:nil];
-                                 [_activity stopAnimating];
-                             }
-                         }
-                         failure:^(NSError* error) {
-                             [_activity stopAnimating];
+    if (![_repeatTextField.text isEqualToString:_passwordTextField.text])
+    {
+        NSString* alertText = [appDelegate languageSelectedStringForKey:@"Please insert same password in both fields"];
+        [SSAppDelegate showAlertWithMessage:NSLocalizedString(alertText,nil) andTitle:nil];
+        return;
+    }
+    [NSThread detachNewThreadWithBlock:^{
+        [self createAccount];
     }];
+//    
+//    [GPGuardPost validateAddress:_emailTextField.text
+//                         success:^(BOOL validity, NSString* suggestion) {
+//                             if (validity)
+//                             {
+//                                 [self createAccount];
+//                                 [_activity stopAnimating];
+//                             }
+//                             else {
+//                                 NSString* message = [appDelegate languageSelectedStringForKey:@"Please use a valid email"];
+//                                 [SSAppDelegate showAlertWithMessage:NSLocalizedString(message,nil) andTitle:nil];
+//                                 [_activity stopAnimating];
+//                             }
+//                         }
+//                         failure:^(NSError* error) {
+//                             [_activity stopAnimating];
+//    }];
     
     
 }
@@ -101,9 +112,9 @@
     //self.view.backgroundColor = BACK_COLOR;
 
     UIColor* whiteColor = [UIColor whiteColor];
-    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"email"
+    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"email"]
                                                                            attributes:@{NSForegroundColorAttributeName: whiteColor}];
-    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"password"
+    _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:[appDelegate languageSelectedStringForKey:@"password"]
                                                                               attributes:@{NSForegroundColorAttributeName: whiteColor}];
     _repeatTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:
                                               [appDelegate  languageSelectedStringForKey:@"confirm password"]
@@ -139,16 +150,12 @@
 -(void)addLocalization
 {
     _titleLabel.text = NSLocalizedString(@"Please enter your credentials",nil);
-    //_repeatTextField.placeholder = NSLocalizedString(@"confirm password", nil);
     _accountButton.titleLabel.text = NSLocalizedString(@"Create Account",nil);
 }
 
 
 - (IBAction)goBack:(UIBarButtonItem *)sender
 {
-//    [self.view removeFromSuperview];
-//    [self animateView:self.parentViewController.view];
-//    [self didMoveToParentViewController:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -169,6 +176,7 @@
 {
     credentials.email = _emailTextField.text;
     credentials.password = _passwordTextField.text;
+    
     if (textField == _repeatTextField)
     {
         if (![_repeatTextField.text isEqualToString:_passwordTextField.text])
@@ -199,6 +207,7 @@
     appDelegate.signInVC.textFieldEmail.text = credentials.email;
     appDelegate.signInVC.textFieldPassword.text = credentials.password;
    
+    [_activity stopAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -40,7 +40,7 @@
 {
     @try
     {
-        NSString *strReceivedData = [[NSString alloc] initWithBytes:[dataReceived bytes] length:[dataReceived length] encoding:NSUTF8StringEncoding];
+        NSString *strReceivedData = [[NSString alloc]initWithData:dataReceived encoding:NSUTF8StringEncoding];
         NSLog(@"CONTACTS FROM SERVER ARE : %@",strReceivedData);
 
         BOOL success = [self processResponse:strReceivedData];
@@ -61,7 +61,7 @@
 {
     @try{
         NSArray* results = [strResponse JSONValue];
-        _count = results.count;
+//        _count = results.count;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
         ^{
