@@ -255,11 +255,11 @@
     
     NSString *firstName = (NSString *)ABRecordCopyValue(ref, kABPersonFirstNameProperty);
     NSString *lastName = (NSString*)ABRecordCopyValue(ref, kABPersonLastNameProperty);
-    NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatThumbnail);
+    //NSData  *imgData = ( NSData *) ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatThumbnail);
     
     
   //  ssContact.photo = [imgData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    ssContact.photo = [imgData base64EncodedStringWithOptions:kNilOptions];
+    //ssContact.photo = [imgData base64EncodedStringWithOptions:kNilOptions];
     ssContact.firstName  = firstName;
     ssContact.lastName = lastName;
     

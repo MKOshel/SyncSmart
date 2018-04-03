@@ -51,7 +51,7 @@
 	[postRequest setHTTPBody:postBody];
 	
     NSString* __block strResponse = nil;
-    
+    NSHTTPURLResponse* __block httpResp = nil;
     NSOperationQueue* queue = [[NSOperationQueue alloc]init];
     
     [NSURLConnection sendAsynchronousRequest:postRequest queue:queue completionHandler:^(NSURLResponse* response, NSData* receivedData, NSError* error)
@@ -65,11 +65,11 @@
             [alert show];
         } else {
             
-            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            httpResp = (NSHTTPURLResponse*)response;
             
             strResponse = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
             
-            if (httpResponse.statusCode == 200) {
+            if (httpResp.statusCode == 200) {
                 NSString* message = [appDelegate languageSelectedStringForKey:@"Upload completed, your contacts have been backed up"];
                 [NSThread detachNewThreadWithBlock:^{
                     UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(message,nil) delegate:appDelegate.syncVC cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

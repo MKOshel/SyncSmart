@@ -300,7 +300,7 @@
 		A095B9B91A6402460019D285 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A095B9BA1A6402460019D285 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A095B9BF1A6419DA0019D285 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncSmartFTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A098F9E9187D7C0A0038C6FE /* SyncSmartAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncSmartAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A098F9EC187D7C0A0038C6FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A098F9EE187D7C0A0038C6FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A098F9F0187D7C0A0038C6FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -620,7 +620,7 @@
 		A098F9EA187D7C0A0038C6FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */,
+				A098F9E9187D7C0A0038C6FE /* SyncSmartAM.app */,
 				A098FA04187D7C0A0038C6FE /* SmartSyncTests.xctest */,
 			);
 			name = Products;
@@ -836,9 +836,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */ = {
+		A098F9E8187D7C0A0038C6FE /* SyncSmartAM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartFTS" */;
+			buildConfigurationList = A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartAM" */;
 			buildPhases = (
 				A098F9E5187D7C0A0038C6FE /* Sources */,
 				A098F9E6187D7C0A0038C6FE /* Frameworks */,
@@ -848,9 +848,9 @@
 			);
 			dependencies = (
 			);
-			name = SyncSmartFTS;
+			name = SyncSmartAM;
 			productName = SmartSync;
-			productReference = A098F9E9187D7C0A0038C6FE /* SyncSmartFTS.app */;
+			productReference = A098F9E9187D7C0A0038C6FE /* SyncSmartAM.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A098FA03187D7C0A0038C6FE /* SmartSyncTests */ = {
@@ -882,7 +882,8 @@
 				ORGANIZATIONNAME = "Dragos Marinescu";
 				TargetAttributes = {
 					A098F9E8187D7C0A0038C6FE = {
-						DevelopmentTeam = FWAVBHQL7C;
+						DevelopmentTeam = G9L46M593Q;
+						ProvisioningStyle = Automatic;
 					};
 					A098FA03187D7C0A0038C6FE = {
 						DevelopmentTeam = FWAVBHQL7C;
@@ -913,7 +914,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */,
+				A098F9E8187D7C0A0038C6FE /* SyncSmartAM */,
 				A098FA03187D7C0A0038C6FE /* SmartSyncTests */,
 			);
 		};
@@ -1078,7 +1079,7 @@
 /* Begin PBXTargetDependency section */
 		A098FA0A187D7C0A0038C6FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A098F9E8187D7C0A0038C6FE /* SyncSmartFTS */;
+			target = A098F9E8187D7C0A0038C6FE /* SyncSmartAM */;
 			targetProxy = A098FA09187D7C0A0038C6FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1186,13 +1187,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G9L46M593Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syncsmart.am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1306,13 +1310,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G9L46M593Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syncsmart.am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1326,13 +1333,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: fts apps & software s.r.l. (FWAVBHQL7C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G9L46M593Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartSync/SmartSync-Prefix.pch";
 				INFOPLIST_FILE = "SmartSync/SmartSync-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.syncsmart.am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23497a51-529f-4adc-8ede-cb47874ad551";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1400,7 +1410,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartFTS" */ = {
+		A098FA15187D7C0A0038C6FE /* Build configuration list for PBXNativeTarget "SyncSmartAM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A098FA16187D7C0A0038C6FE /* Debug */,

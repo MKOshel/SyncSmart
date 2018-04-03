@@ -453,7 +453,8 @@
     }
     if (alertView.tag == TAG_SEND_CONTACTS) {
         if (buttonIndex == 1) {
-            [NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
+            [self upload];
+            //[NSThread detachNewThreadSelector:@selector(upload) toTarget:self withObject:nil];
         }
         else [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }
